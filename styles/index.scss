@@ -1,0 +1,115 @@
+.bannerContainer {
+  background-color: #B2D1FF;
+  display: flex;
+  justify-content: space-between;
+  height:50vh;
+
+ }
+
+ .bannerTxt {
+   display: flex;
+   padding-left: 50px;
+ }
+
+ .bannerImg{
+   display: flex;
+   padding-right: 50px;
+ }
+
+ .mainContainer {
+   margin:100px;
+ }
+
+ .filtersSection {
+   display: flex;
+   justify-content: end;
+   gap: 10px;
+ }
+
+ .fruitsSection li {
+   list-style: none;
+ }
+ .fruitContainer {
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   grid-gap: 2.5% 5%;
+   gap: 2.5% 5%;
+   margin-top:5%;
+
+ }
+
+ .sellFruit {
+   background-color: #DB6868;
+   color: white;
+   padding: 16px;
+   font-size: 1.2em;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+ }
+
+ .sellFruit:hover {
+   background-color: #7E2F2F;
+ }
+
+ /* Dropdown Button */
+ .dropbtn {
+   background-color: #B2D1FF;
+   color: #613206;
+   padding: 16px;
+   font-size: 1.2em;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+ }
+
+ /* Dropdown button on hover & focus */
+ .dropbtn:hover, .dropbtn:focus {
+   background-color: #d5e3f9;
+ }
+
+ .product {
+   background-color: #ecedef;
+   border: none;
+   border-radius: 20px;
+   /* padding:38px; */
+ }
+
+ .addToCart {
+   background-color: #FFF48D;
+   border:none;
+   padding: 10px;
+   border-radius: 0 0 20px 20px;
+   color: #7E2F2F;
+   font-weight: 700;
+   letter-spacing: 1.5px;
+   text-transform: uppercase;
+   transition: .4s ease-in-out;
+   width: 100%;
+ }
+
+ .addToCart:hover {
+   background-color: #DB6868;
+   color: white;
+ }
+
+ .buttonContainer{
+   display:flex;
+   justify-content: end;
+   gap:10px;
+   padding: 10px 10px 0 0;
+ }
+
+ .fa-solid {
+   color:#DB6868;
+   font-size: 2em;
+ }
+
+ .fa-solid:hover {
+   color:#7E2F2F;
+ }
+
+ .productImage {
+   display: flex;
+   justify-content: center;
+ }
