@@ -4,3 +4,21 @@ body,
 html {
   margin: 0;
 }
+.fruit-grid{
+  display: grid;
+  //grid-template-columns: repeat(auto-fit);
+  grid-template-columns: 300px 300px 300px;
+  grid-gap: 20px;
+  grid-auto-rows: minmax(300px, auto);
+}
+
+.fruit {
+  border: solid #000;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+}
+
+.fruit img{
+  width: 100%;
+}

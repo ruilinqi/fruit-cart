@@ -5,7 +5,17 @@
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
+
+<!-- stylesheets -->
+<link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='styles/index.css'>
+
+<!-- scripts -->
+
+<!-- Fonts and Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 <body>
 
@@ -37,17 +47,36 @@
     <div class="mainContainer">
       <!-- filters navigation starts here -->
       <section class="filtersSection">
-        <div class="filters">
-          <h2>Filters</h2>
-        </div>
+
+        <select class="dropbtn">
+          <option selected disabled>Sort By</option>
+          <option>Price: Highest First</option>
+          <option>Price: Lowest First</option>
+          <option>Posted: Oldest First</option>
+          <option>Posted: Newest First</option>
+        </select>
+
+        <select class="dropbtn">
+          <option selected disabled>Filter</option>
+          <option>All Fruit</option>
+          <option>My Fruit</option>
+        </select>
+
+        <button class="sellFruit">Sell Fruit</button>
+
       </section>
       <!-- Filters navigation ends here -->
+
       <!-- Fruit listings start here -->
+      <!-- <h2>Fruit for Sale</h2> -->
       <section class="fruitsSection">
-        <h2>Fruit for Sale</h2>
         <ul class="fruitContainer">
 
           <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
             <div class="productImage">
               <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
             </div>
@@ -55,14 +84,13 @@
             <div class="priceContainer">
               <p class="price">$4.99</p>
             </div>
-            <div class="buttonContainer">
-              <button class="moreInfo">More info</button>
-              <button class="addToCart">Add to cart</button>
-              <button class="addToCart">Favourite</button>
-            </div>
-          </li>
+            <button class="addToCart">Add to cart</button>
 
           <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
             <div class="productImage">
               <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
             </div>
@@ -70,14 +98,13 @@
             <div class="priceContainer">
               <p class="price">$4.99</p>
             </div>
-            <div class="buttonContainer">
-              <button class="moreInfo">More info</button>
-              <button class="addToCart">Add to cart</button>
-              <button class="addToCart">Favourite</button>
-            </div>
-          </li>
+            <button class="addToCart">Add to cart</button>
 
           <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
             <div class="productImage">
               <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
             </div>
@@ -85,14 +112,13 @@
             <div class="priceContainer">
               <p class="price">$4.99</p>
             </div>
-            <div class="buttonContainer">
-              <button class="moreInfo">More info</button>
-              <button class="addToCart">Add to cart</button>
-              <button class="addToCart">Favourite</button>
-            </div>
-          </li>
+            <button class="addToCart">Add to cart</button>
 
           <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
             <div class="productImage">
               <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
             </div>
@@ -100,14 +126,13 @@
             <div class="priceContainer">
               <p class="price">$4.99</p>
             </div>
-            <div class="buttonContainer">
-              <button class="moreInfo">More info</button>
-              <button class="addToCart">Add to cart</button>
-              <button class="addToCart">Favourite</button>
-            </div>
-          </li>
+            <button class="addToCart">Add to cart</button>
 
           <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
             <div class="productImage">
               <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
             </div>
@@ -115,14 +140,13 @@
             <div class="priceContainer">
               <p class="price">$4.99</p>
             </div>
-            <div class="buttonContainer">
-              <button class="moreInfo">More info</button>
-              <button class="addToCart">Add to cart</button>
-              <button class="addToCart">Favourite</button>
-            </div>
-          </li>
+            <button class="addToCart">Add to cart</button>
 
           <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
             <div class="productImage">
               <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
             </div>
@@ -130,14 +154,13 @@
             <div class="priceContainer">
               <p class="price">$4.99</p>
             </div>
-            <div class="buttonContainer">
-              <button class="moreInfo">More info</button>
-              <button class="addToCart">Add to cart</button>
-              <button class="addToCart">Favourite</button>
-            </div>
-          </li>
+            <button class="addToCart">Add to cart</button>
 
           <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
             <div class="productImage">
               <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
             </div>
@@ -145,14 +168,13 @@
             <div class="priceContainer">
               <p class="price">$4.99</p>
             </div>
-            <div class="buttonContainer">
-              <button class="moreInfo">More info</button>
-              <button class="addToCart">Add to cart</button>
-              <button class="addToCart">Favourite</button>
-            </div>
-          </li>
+            <button class="addToCart">Add to cart</button>
 
           <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
             <div class="productImage">
               <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
             </div>
@@ -160,14 +182,13 @@
             <div class="priceContainer">
               <p class="price">$4.99</p>
             </div>
-            <div class="buttonContainer">
-              <button class="moreInfo">More info</button>
-              <button class="addToCart">Add to cart</button>
-              <button class="addToCart">Favourite</button>
-            </div>
-          </li>
+            <button class="addToCart">Add to cart</button>
 
           <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
             <div class="productImage">
               <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
             </div>
@@ -175,17 +196,15 @@
             <div class="priceContainer">
               <p class="price">$4.99</p>
             </div>
-            <div class="buttonContainer">
-              <button class="moreInfo">More info</button>
-              <button class="addToCart">Add to cart</button>
-              <button class="addToCart">Favourite</button>
-            </div>
+            <button class="addToCart">Add to cart</button>
+
           </li>
 
         </ul>
       </section>
     </div>
     <!-- fruit listings end here -->
+  </div>
   </main>
 
   <footer>

@@ -6,5 +6,5 @@ CREATE TABLE users (
   email VARCHAR(255),
   phone VARCHAR(255),
   picture_url VARCHAR(255),
-  isAdmin BOOLEAN,
+  isAdmin BOOLEAN
 );
