@@ -9,6 +9,7 @@
 <!-- stylesheets -->
 <link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
 <link rel='stylesheet' type='text/css' media='screen' href='styles/index.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='styles/nav.css'>
 
 <!-- scripts -->
 
@@ -19,17 +20,24 @@
 </head>
 <body>
 
+  <div class="container">
+
   <header>
-    <!-- Navigation at top starts here -->
-    <div class="navBarContainer">
-      <p>navigation</p>
-      <div class="navlogo">
-        <p>navigation logo</p>
+
+    <!-- nav bar -->
+    <nav>
+      <div class="logo"><h1>LOGO</h1></div>
+      <div class="login">
+        <ul>
+          <li onclick="loginToggle()">login</li>
+          <li onclick="signupToggle()">signup</li>
+        </ul>
       </div>
-      <div class="navMenu">
-        <p>navigation menu</p>
-      </div>
-    </div>
+
+    </nav>
+
+
+
     <!-- Navigation ends here -->
     <!-- Banner starts here -->
     <div class="bannerContainer">
@@ -202,13 +210,55 @@
 
         </ul>
       </section>
+
     </div>
+
     <!-- fruit listings end here -->
-  </div>
+
   </main>
+  </div>
+
+     <!-- pop up sign up form -->
+    <div class="signup-form">
+      <div class="form">
+        <div class="close" onclick="signupToggle()">&times;</div>
+        <div class="text">
+          <h1>SIGN UP</h1>
+        </div>
+        <form action="#">
+          <input type="text" placeholder="username">
+          <input type="text" placeholder="email">
+          <input type="text" placeholder="phone">
+          <input type="text" placeholder="password">
+          <input type="submit" value="SIGN UP">
+          <p>Already have an account? <span class="switch" onclick="signupToggle(); loginToggle()">Log in</span></p>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- pop up log in form -->
+    <div class="login-form">
+      <div class="form">
+        <div class="close" onclick="loginToggle()">&times;</div>
+        <div class="text">
+          <h1>LOG IN</h1>
+        </div>
+        <form action="#">
+          <input type="text" placeholder="username">
+
+          <input type="text" placeholder="password">
+          <input type="submit" value="LOG IN">
+          <p>Don't have an account? <span class="switch" onclick="loginToggle(); signupToggle()">Sign up</span></p>
+        </form>
+      </div>
+    </div>
+    </div>
 
   <footer>
     <p>footer</p>
   </footer>
+
+  <script src="scripts/login.js"></script>
 </body>
 </html>
