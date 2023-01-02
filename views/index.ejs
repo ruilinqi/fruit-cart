@@ -21,30 +21,6 @@
 
 <body>
 
-  <header>
-    <!-- Navigation at top starts here -->
-    <div class="navBarContainer">
-      <p>navigation</p>
-      <div class="navlogo">
-        <p>navigation logo</p>
-      </div>
-      <div class="navMenu">
-        <p>navigation menu</p>
-      </div>
-    </div>
-    <!-- Navigation ends here -->
-    <!-- Banner starts here -->
-    <div class="bannerContainer">
-      <div class="bannerTxt">
-        <h1>Welcome to Fruit Cart!</h1>
-      </div>
-      <div class="bannerImg">
-        <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="Basket of Fruit">
-      </div>
-    </div>
-    <!-- Banner ends here -->
-  </header>
-
   <main>
     <section class="fruit-grid">
       <% for (let fruit of fruits) { %>
@@ -58,7 +34,7 @@
         </div>
         <p class="fruitDescription"><%= fruit.description %></p>
         <div class="button-container">
-          <button class="moreInfo">More info</button>
+           <button class="moreInfo">More info</button>
           <button class="addToCart">Add to cart</button>
           <button class="addToCart">Favourite</button>
         </div>
