@@ -1,44 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <title>Home Page</title>
+  <title>Fruit Cart</title>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+<!-- stylesheets -->
+<link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='styles/index.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='styles/nav.css'>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+<!-- scripts -->
+<script src="/vendor/jquery-3.0.0.js"></script>
+<!-- Fonts and Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- JS -->
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
+
 </head>
-
 <body>
-
   <main>
-    <section class="fruit-grid">
+    <div class="mainContainer">
+      <!-- filters navigation starts here -->
+      <section class="filtersSection">
+
+        <select class="dropbtn">
+          <option selected disabled>Sort By</option>
+          <option>Price: Highest First</option>
+          <option>Price: Lowest First</option>
+          <option>Posted: Oldest First</option>
+          <option>Posted: Newest First</option>
+        </select>
+
+        <select class="dropbtn">
+          <option selected disabled>Filter</option>
+          <option>All Fruit</option>
+          <option>My Fruit</option>
+        </select>
+
+        <button class="sellFruit">Sell Fruit</button>
+
+      </section>
+    <section class="fruitsSection">
+      <ul class="fruitContainer">
       <% for (let fruit of fruits) { %>
-        <div class="fruit">
-        <p class="fruit-header">
-          <img src="<%= fruit.fruit_picture_url %>" alt="fruits"/>
-          <h3 class="fruitName"><%= fruit.name %></h3>
-        </p>
-        <div class="price-container">
-          <p class="fruitPrice">$<%= fruit.price %></p>
-        </div>
-        <p class="fruitDescription"><%= fruit.description %></p>
-        <div class="button-container">
-           <button class="moreInfo">More info</button>
-          <button class="addToCart">Add to cart</button>
-          <button class="addToCart">Favourite</button>
-        </div>
-        </div>
+          <li class="product">
+            <div class="buttonContainer">
+              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            </div>
+            <div class="productImage">
+              <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
+            </div>
+            <h3 class="productName"><%= fruit.name %></h3>
+            <div class="priceContainer">
+              <p class="price">$<%= fruit.price %></p>
+            </div>
+            <button class="addToCart">Add to cart</button>
         <% } %>
     </section>
   </main>
