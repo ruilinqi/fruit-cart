@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', san-serif;
+  user-select: none;
+}
+
+/* nav */
+nav {
+  padding: 30px 60px;
+  height: auto;
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+.login ul {
+  list-style-type: none;
+}
+
+.login ul li {
+  display: inline;
+  padding: 12px 18px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* pop up form*/
+
+.login-form,
+.signup-form {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightblue;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.form {
+  padding: 1rem 1.5rem;
+  width: 24rem;
+}
+
+.form .close {
+  float: right;
+  width: 2rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+
+  color: white;
+
+}
+
+.form .text h1 {
+  text-align: center;
+  margin: 30px 0;
+  color: white;
+}
+
+.form form input {
+  width: 100%;
+  display: block;
+  border: 1px solid #000;
+  border-radius: 50px;
+  padding: 20px 16px;
+  margin: 20px 0;
+  outline: none;
+  font-weight: bold;
+}
+input::placeholder {
+  font-family: 'Poppins', san-serif;
+  opacity: 0.5;
+}
+
+.form form .switch {
+  text-decoration: underline;
+  color: #0000EE;
+  cursor: pointer;
+}
+
+.login-form.active ,
+.signup-form.active {
+  top: 50%;
+  transition: 0.3s;
+  visibility: visible;
+  opacity: 1;
+}
+
+.container.active {
+  filter: blur(20px);
+  transition: .3s;
+  pointer-events:none;
+}
