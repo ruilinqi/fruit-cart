@@ -9,7 +9,15 @@ const express = require('express');
 const router  = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('users');
+  db.query("SELECT name, email, phone FROM users;")
+  .then(data => {
+    const templateVars = { users: data.rows }
+    console.log(templateVars);
+    res.render("index", templateVars);
+  })
+  .catch(err => {
+    console.log("this is an error", err);
+  });
 });
 
 module.exports = router;
