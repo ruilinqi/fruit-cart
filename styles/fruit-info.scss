@@ -9,3 +9,29 @@
 .openPopup{
   visibility:visible;
 }
+
+.moreInfoPopup{
+  display: none;
+  flex-direction: column;
+  width: 500px;
+  height: 400px;
+  background-color: #B2D1FF;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.moreInfoPopup img {
+  position: relative;
+  width: 200px;
+}
+
+#exitPopup{
+  position: relative;
+  width: fit-content;
+  align-self: end;
+}
+

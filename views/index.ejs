@@ -10,9 +10,11 @@
 <link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
 <link rel='stylesheet' type='text/css' media='screen' href='styles/index.css'>
 <link rel='stylesheet' type='text/css' media='screen' href='styles/nav.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='styles/fruit-info.css'>
 
 <!-- scripts -->
 <script src="/vendor/jquery-3.0.0.js"></script>
+<script src="/scripts/fruit-info.js" defer></script>
 <!-- Fonts and Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -43,10 +45,10 @@
       </section>
     <section class="fruitsSection">
       <div class="fruitContainer">
-      <% for (let fruit of fruits) { %>
+      <% for (let fruit of fruitsInfo) { %>
           <div class="product">
             <div class="buttonContainer">
-              <i class="fa-solid fa-circle-info"></i>
+              <i class="fa-solid fa-circle-info" id="moreInfoBtn"></i>
               <i class="fa-solid fa-heart-circle-plus"></i>
             </div>
             <div class="productImage">
@@ -57,7 +59,21 @@
               <p class="price">$<%= fruit.price %></p>
             </div>
             <button class="addToCart">Add to cart</button>
+            <div class="moreInfoPopup" id="fruit-<%= fruit.id %>">
+              <i class="fa-solid fa-circle-xmark" id="exitPopup"></i>
+              <h3 class="productName"><%= fruit.name %></h3>
+              <p class="price">$<%= fruit.price %></p>
+              <p class="fruitDescription"><%= fruit.description %></p>
+              <p class="fruitSeller"><%= fruit.seller %></p>
+              <p class="fruitSeller"><%= fruit.email %></p>
+              <p class="fruitSeller"><%= fruit.phone %></p>
+              <img src="<%= fruit.fruit_picture_url %>" alt="image of fruit"/>
+              <a href="mailto:<%= fruit.email %>">
+                <button id="emailSellerBtn" >Email Seller</button>
+              </a>
+            </div>
           </div>
+
         <% } %>
       </div>
     </section>
