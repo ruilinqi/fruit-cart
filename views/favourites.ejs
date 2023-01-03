@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Users</title>
+
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+<!-- stylesheets -->
+<link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='styles/index.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='styles/nav.css'>
+
+<!-- scripts -->
+<script src="/vendor/jquery-3.0.0.js"></script>
+<!-- Fonts and Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+  <main>
+    <div class="mainContainer">
+      <h1>Favourites</h1>
+
+      <section class="fruitsSection">
+        <div class="fruitContainer">
+        <% for (let fruit of fruits) { %>
+            <div class="product">
+              <div class="buttonContainer">
+                <i class="fa-solid fa-circle-info"></i>
+                <i class="fa-solid fa-heart-circle-plus"></i>
+              </div>
+              <div class="productImage">
+                <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
+              </div>
+              <h3 class="productName"><%= fruit.fruit_name %></h3>
+              <div class="priceContainer">
+                <p class="price">$<%= fruit.price %></p>
+              </div>
+              <button class="addToCart">Add to cart</button>
+            </div>
+          <% } %>
+        </div>
+      </section>
+    </div>
+  </main>
+
+</body>
+
+</html>
