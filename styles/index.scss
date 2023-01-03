@@ -26,16 +26,12 @@
    gap: 10px;
  }
 
- .fruitsSection li {
-   list-style: none;
- }
  .fruitContainer {
    display: grid;
    grid-template-columns: repeat(3,1fr);
    grid-gap: 2.5% 5%;
    gap: 2.5% 5%;
    margin-top:5%;
-
  }
 
  .sellFruit {

@@ -42,9 +42,9 @@
 
       </section>
     <section class="fruitsSection">
-      <ul class="fruitContainer">
+      <div class="fruitContainer">
       <% for (let fruit of fruits) { %>
-          <li class="product">
+          <div class="product">
             <div class="buttonContainer">
               <i class="fa-solid fa-circle-info"></i>
               <i class="fa-solid fa-heart-circle-plus"></i>
@@ -57,8 +57,11 @@
               <p class="price">$<%= fruit.price %></p>
             </div>
             <button class="addToCart">Add to cart</button>
+          </div>
         <% } %>
+      </div>
     </section>
+    </div>
   </main>
 
   <footer>

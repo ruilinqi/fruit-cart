@@ -21,26 +21,33 @@
 </head>
 
 <body>
-  <h1>Favourites</h1>
+  <main>
+    <div class="mainContainer">
+      <h1>Favourites</h1>
 
-  <section class="fruitsSection">
-    <ul class="fruitContainer">
-    <% for (let fruit of fruits) { %>
-        <li class="product">
-          <div class="buttonContainer">
-            <i class="fa-solid fa-circle-info"></i>
-            <i class="fa-solid fa-heart-circle-plus"></i>
-          </div>
-          <div class="productImage">
-            <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
-          </div>
-          <h3 class="productName"><%= fruit.fruit_name %></h3>
-          <div class="priceContainer">
-            <p class="price">$<%= fruit.price %></p>
-          </div>
-          <button class="addToCart">Add to cart</button>
-      <% } %>
-  </section>
+      <section class="fruitsSection">
+        <div class="fruitContainer">
+        <% for (let fruit of fruits) { %>
+            <div class="product">
+              <div class="buttonContainer">
+                <i class="fa-solid fa-circle-info"></i>
+                <i class="fa-solid fa-heart-circle-plus"></i>
+              </div>
+              <div class="productImage">
+                <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
+              </div>
+              <h3 class="productName"><%= fruit.fruit_name %></h3>
+              <div class="priceContainer">
+                <p class="price">$<%= fruit.price %></p>
+              </div>
+              <button class="addToCart">Add to cart</button>
+            </div>
+          <% } %>
+        </div>
+      </section>
+    </div>
+  </main>
+
 </body>
 
 </html>
