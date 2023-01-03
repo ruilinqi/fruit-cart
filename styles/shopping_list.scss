@@ -1,0 +1,39 @@
+.shoppingCartHeader {
+  margin: auto;
+  width: 90%;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartHeading {
+  color: #000;
+}
+.removeAll {
+  color: #E44C4C;
+  cursor: pointer;
+  border-bottom: 1px solid #E44C4C;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imageBox {
+  text-align: center;
+}
+
+.removeItem {
+  background-color: #FFF48D;
+  border:none;
+  padding: 10px;
+  border-radius: 20px;
+  color: #7E2F2F;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: .4s ease-in-out;
+}

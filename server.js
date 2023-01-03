@@ -49,6 +49,7 @@ const usersRoutes = require('./routes/users');
 const fruitRoutes = require('./routes/fruit-card');
 const favouritesRoutes = require('./routes/favourites');
 const shoppingListsRoutes = require('./routes/shopping_list');
+const sellRoutes = require('./routes/sell');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -59,6 +60,8 @@ app.use('/users', usersRoutes);
 //app.use('/', fruitRoutes(db));
 app.use('/favourites', favouritesRoutes);
 app.use('/shopping_cart', shoppingListsRoutes);
+app.use('/', sellRoutes);
+
 
 // Note: mount other resources here, using the same pattern above
 
@@ -66,9 +69,10 @@ app.use('/shopping_cart', shoppingListsRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  db.query("SELECT * FROM fruits;")
+  db.query(`SELECT fruits.*, users.name as seller, users.email, users.phone FROM fruits
+            JOIN users ON fruits.owner_id = users.id;`)
   .then(data => {
-    const templateVars = { fruits: data.rows }
+    const templateVars = { fruitsInfo: data.rows }
     console.log(templateVars);
     res.render("index", templateVars);
   })
