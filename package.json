@@ -20,7 +20,8 @@
     "morgan": "^1.9.1",
     "pg": "^8.5.0",
     "sass": "^1.35.1",
-    "tailwindcss": "^1.9.6"
+    "tailwindcss": "^1.9.6",
+    "tw-elements": "^1.0.0-alpha13"
   },
   "devDependencies": {
     "nodemon": "^2.0.10"
