@@ -12,11 +12,11 @@ router.get("/signup", (req, res) => {
 
 router.post("/signup", (req, res) => {
   const id = req.body.id;
-  const name = req.body.username;
+  const name = req.body.name;
   const password = req.body.password;
   const email = req.body.email;
   const phone = req.body.phone;
-  const pictureURL = req.body.owner_id;
+  const pictureURL = "";
   const isAdmin = false;
 
 
@@ -25,6 +25,7 @@ router.post("/signup", (req, res) => {
 
   db.query(sql, [id, name, password, email, phone, pictureURL, isAdmin])
     .then(data => {
+      console.log("User Data:", data);
       res.redirect("/");
     })
     .catch(err => {

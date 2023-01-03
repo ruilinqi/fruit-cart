@@ -43,7 +43,7 @@
     >
 
       <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-        <form>
+        <form action="/signup" method="POST">
 
 
           <div
@@ -52,12 +52,24 @@
             <p class="text-center font-semibold mx-4 mb-0">SIGN UP</p>
           </div>
 
+          <!-- user id input -->
+          <div class="mb-6">
+            <input
+              type="text"
+              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+              name="id"
+              id="id"
+              placeholder="User ID"
+            />
+          </div>
+
           <!-- username input -->
           <div class="mb-6">
             <input
               type="text"
               class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleFormControlInput2"
+              name="name"
+              id="user-name"
               placeholder="Username"
             />
           </div>
@@ -66,7 +78,8 @@
             <input
               type="text"
               class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleFormControlInput2"
+              name="email"
+              id="email"
               placeholder="Email address"
             />
           </div>
@@ -75,7 +88,8 @@
             <input
               type="text"
               class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleFormControlInput2"
+              name="phone"
+              id="phone"
               placeholder="Phone number"
             />
           </div>
@@ -85,7 +99,8 @@
             <input
               type="password"
               class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleFormControlInput2"
+              name="password"
+              id="password"
               placeholder="Password"
             />
           </div>
