@@ -1,7 +1,6 @@
 const express = require('express');
 const db = require('../db/connection');
 const router  = express.Router();
-const allFruitsQueries = require('../db/queries/allFruits');
 
 router.get("/sell", (req, res) => {
   res.render("sell");
