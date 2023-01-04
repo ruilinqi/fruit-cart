@@ -86,6 +86,8 @@ app.get("/", (req, res) => {
 
   console.log("REQ.SESSION AT / route: ",req.session);
 
+
+
   let queryString = `SELECT fruits.*, users.name as seller, users.email, users.phone FROM fruits
   JOIN users ON fruits.owner_id = users.id
   ORDER BY `;
@@ -112,18 +114,39 @@ app.get("/", (req, res) => {
   queryString += sortBy;
   // console.log(queryString);
 
+
+  let templateVars = {};
+
+  // Query to select info about the currently logged in user.
+  if (req.session.user_id) {
+    let usersQuery = `SELECT isadmin FROM users WHERE id = ${req.session.user_id};`;
+    db.query(usersQuery)
+    .then(data => {
+      templateVars.user = data.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
+
   db.query(queryString)
   .then(data => {
-    const templateVars = { fruits: data.rows }
-    // console.log(templateVars);
+    templateVars.fruits = data.rows;
+    console.log("TEMPLATE VARS: ",templateVars);
     res.render("index", templateVars);
   })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+
+
+
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
