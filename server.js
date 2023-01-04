@@ -78,7 +78,7 @@ app.get("/", (req, res) => {
   db.query(`SELECT fruits.*, users.name as seller, users.email, users.phone FROM fruits
             JOIN users ON fruits.owner_id = users.id;`)
   .then(data => {
-    const templateVars = { fruitsInfo: data.rows }
+    const templateVars = { fruits: data.rows }
     console.log(templateVars);
     res.render("index", templateVars);
   })

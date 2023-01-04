@@ -1,21 +1,9 @@
-.popup{
-  width:400px;
-  background:white;
-  border-radius: 6px;
-  position:absolute;
-  visibility:hidden;
-}
-
-.openPopup{
-  visibility:visible;
-}
-
 .moreInfoPopup{
   display: none;
   flex-direction: column;
-  width: 500px;
-  height: 400px;
-  background-color: #B2D1FF;
+  width: 450px;
+  height: 380px;
+  background-color: #d5e3f9;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -29,9 +17,24 @@
   width: 200px;
 }
 
-#exitPopup{
+#exitPopup {
   position: relative;
   width: fit-content;
   align-self: end;
 }
 
+#popupBtns {
+  background-color: #FFF48D;
+  color:#613206;
+  letter-spacing: 1.5px;
+}
+
+#popupBtns:hover {
+  background-color:#DB6868;
+  color:white;
+  letter-spacing: 1.5px;
+}
+
+#popupText {
+  color:#613206;
+}

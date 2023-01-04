@@ -1,20 +1,21 @@
-.bannerContainer {
-  background-color: #B2D1FF;
-  display: flex;
-  justify-content: space-between;
-  height:50vh;
 
- }
+// .bannerContainer {
+//   background-color: #B2D1FF;
+//   display: flex;
+//   justify-content: space-between;
+//   height:50vh;
 
- .bannerTxt {
-   display: flex;
-   padding-left: 50px;
- }
+//  }
 
- .bannerImg{
-   display: flex;
-   padding-right: 50px;
- }
+//  .bannerTxt {
+//    display: flex;
+//    padding-left: 50px;
+//  }
+
+//  .bannerImg{
+//    display: flex;
+//    padding-right: 50px;
+//  }
 
  .mainContainer {
    margin:100px;
@@ -26,13 +27,13 @@
    gap: 10px;
  }
 
- .fruitContainer {
-   display: grid;
-   grid-template-columns: repeat(3,1fr);
-   grid-gap: 2.5% 5%;
-   gap: 2.5% 5%;
-   margin-top:5%;
- }
+//  .fruitContainer {
+//    display: grid;
+//    grid-template-columns: repeat(3,1fr);
+//    grid-gap: 2.5% 5%;
+//    gap: 2.5% 5%;
+//    margin-top:5%;
+//  }
 
  .sellFruit {
    background-color: #DB6868;
