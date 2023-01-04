@@ -3,7 +3,7 @@ require('dotenv').config();
 
 // cookieParser
 const cookieParser = require('cookie-parser')
-
+const cookieSession = require('cookie-session');
 
 // Web server config
 const sassMiddleware = require('./lib/sass-middleware');
@@ -40,6 +40,11 @@ app.use(
 app.use(express.static('public'));
 
 app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key', 'key2'],
+  maxAge: 24 * 60 * 60 * 1000
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
