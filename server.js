@@ -53,6 +53,7 @@ const sellRoutes = require('./routes/sell');
 const loginRoutes = require('./routes/login');
 const signupRoutes = require('./routes/signup');
 const contactRoutes = require('./routes/contact');
+// const sortByRoutes = require('./routes/sort_by');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -67,6 +68,7 @@ app.use('/', sellRoutes);
 app.use('/', loginRoutes);
 app.use('/', signupRoutes);
 app.use('/', contactRoutes);
+// app.use('/', sortByRoutes);
 
 
 // Note: mount other resources here, using the same pattern above
@@ -74,17 +76,45 @@ app.use('/', contactRoutes);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
 app.get("/", (req, res) => {
-  db.query(`SELECT fruits.*, users.name as seller, users.email, users.phone FROM fruits
-            JOIN users ON fruits.owner_id = users.id;`)
+  let queryString = `SELECT fruits.*, users.name as seller, users.email, users.phone FROM fruits
+  JOIN users ON fruits.owner_id = users.id
+  ORDER BY `;
+  let sortType = req.query.sortType;
+  let sortBy = "fruits.price;";
+
+  if (sortType === "highPrice") {
+    console.log("highPrice");
+    sortBy = "fruits.price DESC;";
+  }
+  if (sortType === "lowPrice") {
+    console.log("lowPrice");
+    sortBy = "fruits.price ASC;";
+  }
+  if (sortType === "newPost") {
+    console.log("newPost");
+    sortBy = "fruits.list_time ASC;";
+  }
+  if (sortType === "oldPost") {
+    console.log("oldPost");
+    sortBy = "fruits.list_time DESC;";
+  }
+
+  queryString += sortBy;
+  console.log(queryString);
+
+  db.query(queryString)
   .then(data => {
     const templateVars = { fruits: data.rows }
     console.log(templateVars);
     res.render("index", templateVars);
   })
-  .catch(err => {
-    console.log("this is an error", err);
-  });
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 app.listen(PORT, () => {

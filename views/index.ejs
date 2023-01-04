@@ -93,19 +93,22 @@
       <!-- filters navigation starts here -->
       <section class="filtersSection">
 
-        <select class="dropbtn">
+      <form action="/" method="GET">
+        <select class="dropbtn" name="sortType">
           <option selected disabled>Sort By</option>
-          <option>Price: Highest First</option>
-          <option>Price: Lowest First</option>
-          <option>Posted: Oldest First</option>
-          <option>Posted: Newest First</option>
+          <option value="highPrice">Price: Highest First</option>
+          <option value="lowPrice">Price: Lowest First</option>
+          <option value="newPost">Posted: Oldest First</option>
+          <option value="oldPost">Posted: Newest First</option>
         </select>
-
+        <button type="submit">Search</button>
+      </form>
         <select class="dropbtn">
           <option selected disabled>Filter</option>
           <option>All Fruit</option>
           <option>My Fruit</option>
         </select>
+
 
         <a href="/sell">
         <button class="sellFruit">Sell Fruit</button>
@@ -115,9 +118,11 @@
 
       <!-- Fruits Listings -->
     <section class="fruitsSection">
+
       <div class="grid grid-cols-3 gap-10 pt-12">
       <% for (let fruit of fruits) { %>
           <div class="product hover:bg-stone-400 cursor-pointer">
+
 
             <div class="buttonContainer">
               <div class="">
