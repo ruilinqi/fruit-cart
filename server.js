@@ -76,6 +76,7 @@ app.use('/', contactRoutes);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
 app.get("/", (req, res) => {
   let queryString = `SELECT fruits.*, users.name as seller, users.email, users.phone FROM fruits
   JOIN users ON fruits.owner_id = users.id
@@ -91,6 +92,14 @@ app.get("/", (req, res) => {
     console.log("lowPrice");
     sortBy = "fruits.price ASC;";
   }
+  if (sortType === "newPost") {
+    console.log("newPost");
+    sortBy = "fruits.list_time ASC;";
+  }
+  if (sortType === "oldPost") {
+    console.log("oldPost");
+    sortBy = "fruits.list_time DESC;";
+  }
 
   queryString += sortBy;
   console.log(queryString);
@@ -103,8 +112,8 @@ app.get("/", (req, res) => {
   })
     .catch(err => {
       res
-          .status(500)
-          .json({ error: err.message });
+        .status(500)
+        .json({ error: err.message });
     });
 });
 

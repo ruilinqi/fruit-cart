@@ -1,4 +1,3 @@
--- Users table seeds here (Example)
 INSERT INTO users (id, name, password, email, phone, picture_url, isAdmin)
 VALUES (1, 'Alice', 'alice2010', 'alice@wonderland.com', '123-123-1234', 'https://i.imgur.com/nlhLi3I.png', FALSE),
 (2, 'Batman', 'batman2008', 'batman@gotham.com', '777-888-9999', 'https://i.imgur.com/ilT4JDe.png', FALSE),
