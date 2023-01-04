@@ -83,6 +83,9 @@ app.use('/', contactRoutes);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
+
+  console.log("REQ.SESSION AT / route: ",req.session);
+
   let queryString = `SELECT fruits.*, users.name as seller, users.email, users.phone FROM fruits
   JOIN users ON fruits.owner_id = users.id
   ORDER BY `;
@@ -107,12 +110,12 @@ app.get("/", (req, res) => {
   }
 
   queryString += sortBy;
-  console.log(queryString);
+  // console.log(queryString);
 
   db.query(queryString)
   .then(data => {
     const templateVars = { fruits: data.rows }
-    console.log(templateVars);
+    // console.log(templateVars);
     res.render("index", templateVars);
   })
     .catch(err => {

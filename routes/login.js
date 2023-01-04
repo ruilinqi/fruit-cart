@@ -15,7 +15,7 @@ router.post("/login", (req, res) => {
   const loginEmail = req.body.email;
   const loginPassword = req.body.password;
 
-  db.query("SELECT email, password FROM users WHERE email=$1", [loginEmail])
+  db.query("SELECT id, email, password FROM users WHERE email=$1", [loginEmail])
     .then(data => {
       const templateVars = { users: data.rows };
 
@@ -33,6 +33,8 @@ router.post("/login", (req, res) => {
 
       }
       req.session["user_id"] = user.id;
+      console.log("REQ.SESSION: ",req.session);
+      console.log("USER ID after login: ",user.id);
       res.redirect("/");
 
     })
