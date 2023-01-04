@@ -52,6 +52,7 @@ const shoppingListsRoutes = require('./routes/shopping_list');
 const sellRoutes = require('./routes/sell');
 const loginRoutes = require('./routes/login');
 const signupRoutes = require('./routes/signup');
+const contactRoutes = require('./routes/contact');
 // const sortByRoutes = require('./routes/sort_by');
 
 // Mount all resource routes
@@ -66,6 +67,7 @@ app.use('/shopping_cart', shoppingListsRoutes);
 app.use('/', sellRoutes);
 app.use('/', loginRoutes);
 app.use('/', signupRoutes);
+app.use('/', contactRoutes);
 // app.use('/', sortByRoutes);
 
 
