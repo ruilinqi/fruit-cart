@@ -15,12 +15,12 @@ router.post("/login", (req, res) => {
   const loginEmail = req.body.email;
   const loginPassword = req.body.password;
 
-  db.query("SELECT email, password FROM users WHERE email=$1", [loginEmail])
+  db.query("SELECT email, password, id FROM users WHERE email=$1", [loginEmail])
     .then(data => {
       const templateVars = { users: data.rows };
 
       const user = data.rows[0];
-      console.log(user);
+      console.log("Login user: ", user);
 
       if (!user) {
         return res.send("<html><body><h3>Error 403: Email not found</h3></body></html>");
@@ -34,6 +34,7 @@ router.post("/login", (req, res) => {
       }
       req.session["user_id"] = user.id;
       res.redirect("/");
+      console.log("Login user_id: ", req.session.user_id);
 
     })
     .catch(err => {
