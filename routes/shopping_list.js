@@ -24,10 +24,13 @@ router.get("/", (req, res) => {
 router.post("/:fruit_id/delete", (req, res) => {
   const fruitId = req.params.fruit_id;
   const userID = req.session.user_id;
+  console.log("Deleted fruitId", fruitId);
+  console.log("Deleted userID", userID);
   const sql = `DELETE FROM shopping_list WHERE user_id = $1 AND fruit_id = $2 RETURNING *;`
   db.query(sql, [userID, fruitId])
   .then(data => {
-    res.redirect("/")
+    console.log("delete:", data);
+    res.redirect("/shopping_cart");
   })
   .catch(err => {
     res
@@ -36,5 +39,23 @@ router.post("/:fruit_id/delete", (req, res) => {
   });
 });
 
+// Delete all fruits from shopping list
+router.post("/deleteall", (req, res) => {
+  const fruitId = req.params.fruit_id;
+  const userID = req.session.user_id;
+  console.log("Deleted fruitId", fruitId);
+  console.log("Deleted userID", userID);
+  const sql = `DELETE FROM shopping_list WHERE user_id = $1 RETURNING *;`
+  db.query(sql, [userID])
+  .then(data => {
+    console.log("delete:", data);
+    res.redirect("/shopping_cart");
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
 
 module.exports = router;

@@ -14,7 +14,6 @@
 
 <!-- scripts -->
 <script src="/vendor/jquery-3.0.0.js"></script>
-<script src="/scripts/favourites.js"></script>
 <script src="/scripts/app.js"></script>
 <script src="/scripts/fruit-info.js" defer></script>
 
@@ -250,8 +249,9 @@
                       SOLD
                     </button>
                     <% } else { %>
+
                     <button type="button"
-                      class="cart_btn inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPinkactive:shadow-lg transition duration-150 ease-in-out ml-1" data-fruitId="<%= fruit.id %>">
+                      class="cart_btn cart_plus inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPinkactive:shadow-lg transition duration-150 ease-in-out ml-1" data-id="plus" data-fruitId="<%= fruit.id %>">
                       ADD TO CART
                     </button>
                     <% } %>
