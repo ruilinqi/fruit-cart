@@ -157,18 +157,11 @@
 
               <!--heart-->
               <!-- <i class="fa-solid fa-circle-info" id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i> -->
-              <!-- <p class="favourites" data-fruits-id="<%= fruit.id %>"> -->
-              <!-- <i class="fa-solid fa-heart-circle-plus"></i> -->
-              <!-- </p> -->
-              <!-- <form action="/api/users/<%= fruit.id %>/favourite" method="POST"> -->
-                 <!-- <p id="favourite-button" class="list-group-item"><button type="submit">Favourite</button> -->
-                  <!-- <% if (fruit.isfavourite) { %>
-                    <i class="fa-solid fa-heart-circle-minus fav_btn" data-id="minus" data-fruitId="<%= fruit.id %>"></i>
-                  <% } else { %>
-                    <i class="fa-solid fa-heart-circle-plus fav_btn" data-id="plus" data-fruitId="<%= fruit.id %>"></i>
-                  <% } %>
-                 </p> -->
-              <!-- </form> -->
+              <% if (fruit.isfavourite) { %>
+                <i class="fa-solid fa-heart-circle-minus fav_btn" data-id="minus" data-fruitId="<%= fruit.id %>"></i>
+              <% } else { %>
+                <i class="fa-solid fa-heart-circle-plus fav_btn" data-id="plus" data-fruitId="<%= fruit.id %>"></i>
+              <% } %>
               <!--heart end-->
 
               <div class="flex justify-between mt-3 mb-2">
