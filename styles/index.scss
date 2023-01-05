@@ -110,3 +110,18 @@
    display: flex;
    justify-content: center;
  }
+
+ /* Search button with Sort By */
+ .searchBtn {
+  background-color: #DB6868!important;
+  color: #FFF;
+  padding: 16px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  background-color: #7E2F2F;
+}

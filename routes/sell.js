@@ -28,7 +28,8 @@ router.post("/sell", (req, res) => {
   const description = req.body.description;
   const imageURL = req.body.imageURL; // Changed fruit_picture_url to imageURL.
   const price = req.body.price;
-  const ownerID = 3;
+  const ownerID = req.session.user_id;
+  console.log("ownerID", ownerID);
   // const ownerID = req.session.owner_id;
   const isSold = false;
   // const listTime = req.body.list_time;
