@@ -22,9 +22,9 @@
  }
 
  .filtersSection {
-   display: flex;
-   justify-content: end;
-   gap: 10px;
+  display: flex;
+  justify-content: start;
+  flex-wrap: nowrap;
  }
 
 //  .fruitContainer {
@@ -36,22 +36,24 @@
 //  }
 
  .sellFruit {
-   background-color: #DB6868;
-   color: white;
+   background-color: #FFF48D;
+   color: #7E2F2F;
    padding: 16px;
    font-size: 1.2em;
+   font-weight: 700;
    border: none;
    border-radius: 10px;
    cursor: pointer;
  }
 
  .sellFruit:hover {
-   background-color: #7E2F2F;
+   background-color: #DB6868;
+   color: white;
  }
 
  /* Dropdown Button */
  .dropbtn {
-   background-color: #B2D1FF;
+   background-color: #d5e3f9;
    color: #613206;
    padding: 16px;
    font-size: 1.2em;
@@ -62,7 +64,7 @@
 
  /* Dropdown button on hover & focus */
  .dropbtn:hover, .dropbtn:focus {
-   background-color: #d5e3f9;
+   background-color: #B2D1FF;
  }
 
  .product {
@@ -113,17 +115,19 @@
 
  /* Search button with Sort By */
  .searchBtn {
-  background-color: #DB6868!important;
-  color: #FFF;
+  background-color: #FFF48D!important;
+  color: #7E2F2F;
   padding: 16px;
   font-size: 1.2em;
+  font-weight:700;
   border: none;
   border-radius: 10px;
   cursor: pointer;
 }
 
 .searchBtn:hover {
-  background-color: #7E2F2F;
+  background-color: #DB6868!important;
+  color: white;
 }
 /* Add button when user is customer */
 .add_to_cart {
