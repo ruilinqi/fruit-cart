@@ -138,8 +138,8 @@ app.get("/", (req, res) => {
 
   db.query(queryString, [userID])
   .then(data => {
-    const templateVars = { fruits: data.rows }
-    //     templateVars.fruits = data.rows;
+    //const templateVars = { fruits: data.rows }
+    templateVars.fruits = data.rows;
 
     console.log("templateVars: ",templateVars);
     res.render("index", templateVars);
