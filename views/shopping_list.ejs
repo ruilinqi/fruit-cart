@@ -20,13 +20,38 @@
   <!-- scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="/scripts/app.js"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'white': '#ffffff',
+        'fruitBlue': '#d5e3f9',
+        'fruitBlueDark':'#B2D1FF',
+        'fruitYellow':'#FFF48D',
+        'fruitPink': '#DB6868',
+        'fruitPinkDark':'#7E2F2',
+        'fruitBrown': '#613206'
+    },
+      }
+    }
+  }
+</script>
 </head>
 
 <body>
   <main>
     <div class="mainContainer">
       <div class="shoppingCartHeader">
-        <h1 class="cartHeading">Shopping Cart</h1>
+        <p class="text-left font-semibold mx-4 mb-0 text-header-big">Shopping Cart</p>
 
         <button class="removeAll cart_removeall_btn cart_minus" data-id="minus">Remove all</button>
       </div>
@@ -39,8 +64,8 @@
                 <i class="fa-solid fa-circle-info"></i>
                 <i class="fa-solid fa-heart-circle-plus"></i>
               </div> -->
-              <div class="imageBox">
-                <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
+              <div class="productImage">
+                <img id="fruitImage" class="cart-image h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
               </div>
               <h3 class="productName"><%= fruit.fruit_name %></h3>
               <div class="priceContainer">
