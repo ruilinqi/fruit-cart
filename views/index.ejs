@@ -141,7 +141,11 @@
       <% for (let fruit of fruits) { %>
 
           <div class="product cursor-pointer relative overflow-hidden bg-no-repeat bg-cover max-w-xs" >
+            <% if (!user[0].isadmin) { %>
             <div class="click-to-pop " id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= fruit.id %>">
+            <% } else { %>
+              <div class="click-to-pop " id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= fruit.id %>">
+            <% } %>
               <div class="productImage rounded-t-2xl mb-1  max-w-xs hover:scale-105 transition duration-300 ease-in-out">
                 <% if (fruit.issold) { %>
                   <img id="fruitImage" class="grayscale h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
@@ -163,7 +167,11 @@
                 <button id="markSold" class="addToCart" onclick="updateFruitSold(<%= fruit.id %>)">Mark Sold</button>
                 <% } %>
             <% } else { %>
-            <button class="addToCart">Add to cart</button>
+              <% if (fruit.issold) { %>
+                <button disabled class="addToCart bg-fruitPink text-white" onclick="updateFruitSold(<%= fruit.id %>)">Sold</button>
+              <% } else { %>
+                <button class="addToCart">Add to cart</button>
+              <% } %>
             <% } %>
 
             <!-- More info Popup -->
@@ -186,7 +194,11 @@
                       </div>
                   </div>
 
-                  <img class="mx-5 object-scale-down rounded-2xl"src="<%= fruit.fruit_picture_url %>">
+                  <% if (fruit.issold) { %>
+                    <img class="mx-5 object-scale-down rounded-2xl grayscale"src="<%= fruit.fruit_picture_url %>">
+                  <% } else { %>
+                    <img class="mx-5 object-scale-down rounded-2xl"src="<%= fruit.fruit_picture_url %>">
+                  <% } %>
 
                   <div class="modal-body relative p-4 flex justify-between">
                     <div>
@@ -204,11 +216,17 @@
                       EMAIL SELLER
                     </button>
                     </a>
-
+                    <% if (fruit.issold) { %>
+                      <button disabled type="button"
+                      class="inline-block tracking-wider px-6 py-2.5 bg-fruitPink text-white font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPinkactive:shadow-lg transition duration-150 ease-in-out ml-1">
+                      SOLD
+                    </button>
+                    <% } else { %>
                     <button type="button"
                       class="inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPinkactive:shadow-lg transition duration-150 ease-in-out ml-1">
                       ADD TO CART
                     </button>
+                    <% } %>
                   </div>
                 </div>
               </div>
