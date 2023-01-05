@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
   });
 });
 
-// Delete fruits from favourites
+// Delete fruits from shopping list
 router.post("/:fruit_id/delete", (req, res) => {
   const fruitId = req.params.fruit_id;
   const userID = req.session.user_id;
