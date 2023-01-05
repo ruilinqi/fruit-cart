@@ -121,9 +121,11 @@
           <option>My Fruit</option>
         </select>
 
-        <a href="/sell">
-          <button class="sellFruit">Sell Fruit</button>
-        </a>
+        <% if (user[0].isadmin) { %>
+          <a href="/sell">
+            <button class="sellFruit">Sell Fruit</button>
+          </a>
+        <% } %>
 
       </section>
 

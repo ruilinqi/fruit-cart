@@ -115,7 +115,7 @@ app.get("/", (req, res) => {
   // console.log(queryString);
 
 
-  let templateVars = {};
+  let templateVars = { user: [{}] };
 
   // Query to select info about the currently logged in user.
   if (req.session.user_id) {
