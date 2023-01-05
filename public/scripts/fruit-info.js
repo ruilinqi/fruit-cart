@@ -1,21 +1,30 @@
-// const moreInfoBtns = document.getElementsByClassName("fa-solid fa-circle-info");
+const markSoldBtns = document.getElementsByClassName("addToCart");
 
-// const exitPopupBtns = document.getElementsByClassName("fa-solid fa-circle-xmark");
+for (let element of markSoldBtns) {
+  element.addEventListener("click",function(){markFruitSold(element)});
+}
 
-// for (element of moreInfoBtns){
-//   element.addEventListener("click", openPopup)
-// }
+function markFruitSold(element){
+  fruitImage = element.previousElementSibling.firstElementChild.firstElementChild;
+  console.log(fruitImage);
 
-// for (element of exitPopupBtns){
-//   element.addEventListener("click", closePopup)
-// }
+  fruitImage.classList.add("grayscale");
 
-// function openPopup(event){
-//   let popup = event.target.parentElement.parentElement.lastElementChild;
-//   popup.style.display = "flex";
-// }
+  element.innerHTML = "SOLD";
+  element.disabled = true;
+  element.classList.add("bg-fruitPink", "text-white");
 
-// function closePopup(event){
-//   let popup = event.target.parentElement;
-//   popup.style.display = "none";
-// }
+}
+
+function updateFruitSold(fruit_id) {
+  console.log(fruit_id);
+  fetch("/sold", {
+    method: "POST",
+    body: JSON.stringify({id: fruit_id}),
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((data) => console.log(data));
+}
