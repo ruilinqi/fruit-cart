@@ -1,6 +1,7 @@
 INSERT INTO favourites (user_id, fruit_id)
 VALUES (1, 1),
 (1, 2),
+(2, 1),
 (3, 1),
 (3, 3),
 (4, 1),

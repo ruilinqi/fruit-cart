@@ -93,7 +93,8 @@ app.get("/", (req, res) => {
 
   let queryString = `SELECT DISTINCT fruits.*, users.id as user_id,
   users.name as seller, users.email, users.phone,
-  (SELECT id FROM favourites WHERE user_id = $1 AND fruit_id = fruits.id LIMIT 1) AS isfavourite
+  (SELECT id FROM favourites WHERE user_id = $1 AND fruit_id = fruits.id LIMIT 1) AS isfavourite,
+  (SELECT id FROM shopping_list WHERE user_id = $1 AND fruit_id = fruits.id LIMIT 1) AS isshop
   FROM fruits
   JOIN users ON fruits.owner_id = users.id
   ORDER BY `;
@@ -149,8 +150,6 @@ app.get("/", (req, res) => {
       .status(500)
       .json({ error: err.message });
   });
-
-
 
 });
 

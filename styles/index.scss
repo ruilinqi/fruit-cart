@@ -125,3 +125,34 @@
 .searchBtn:hover {
   background-color: #7E2F2F;
 }
+/* Add button when user is customer */
+.add_to_cart {
+  background-color: #FFF48D;
+  border:none;
+  padding: 10px;
+  border-radius: 0 0 20px 20px;
+  color: #7E2F2F;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: .4s ease-in-out;
+  width: 100%;
+}
+
+.add_to_cart:hover {
+  background-color: #DB6868;
+  color: white;
+}
+/* Sold Button when user is a customer */
+.cart_not_working {
+  background-color: #DB6868;
+  border:none;
+  padding: 10px;
+  border-radius: 0 0 20px 20px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: .4s ease-in-out;
+  width: 100%;
+}

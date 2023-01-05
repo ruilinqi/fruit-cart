@@ -183,11 +183,14 @@
             <% } else { %>
             <!-- <button class="addToCart">Add to cart</button> -->
               <% if (fruit.isshop) { %>
-                <button class="add_to_cart cart_btn cart_minus" data-id="minus" data-fruitId="<%= fruit.id %>">Remove from cart</button>
+                <!-- <button class="add_to_cart cart_btn cart_minus" data-id="minus" data-fruitId="<%= fruit.id %>">Remove from cart</button> -->
                 <!-- <i class="fa-solid fa-heart-circle-minus cart_btn" data-id="minus" data-fruitId="<%= fruit.id %>"></i> -->
-              <% } else { %>
+
+                <!-- <button id="makeShop" class="addToShopCart" onclick="updateFruitCart(<%= fruit.id %>)">Add cart</button> -->
                 <button class="add_to_cart cart_btn cart_plus" data-id="plus" data-fruitId="<%= fruit.id %>">Add to cart</button>
                 <!-- <i class="fa-solid fa-heart-circle-plus cart_btn" data-id="plus" data-fruitId="<%= fruit.id %>"></i> -->
+              <% } else { %>
+                <button disabled class="cart_not_working" data-fruitId="<%= fruit.id %>">Sold</button>
               <% } %>
             <% } %>
 
