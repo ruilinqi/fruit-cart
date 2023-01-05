@@ -6,7 +6,10 @@ $(document).ready(function() {
 function modalMarkSold(){
   if ($(this)[0].id == "markSold") {
     let modalImage = $(this).next().find("#modalFruitImage");
-    let modalAdd = modalImage.siblings().eq(2).find("#modalAddToCart");
+
+    // console.log(modalImage.siblings().eq(2).find("#modalMarkSold"));
+
+    let modalAdd = modalImage.siblings().eq(2).find("#modalMarkSold");
     modalImage[0].classList.add("grayscale");
 
     modalAdd[0].classList.remove("bg-fruitYellow", "text-fruitBrown");
@@ -15,9 +18,11 @@ function modalMarkSold(){
     modalAdd[0].innerHTML = "SOLD";
   }
 
-  if ($(this)[0].id == "modalAddToCart") {
+
+
+  if ($(this)[0].id == "modalMarkSold") {
     let modalImage = $(this).parent().siblings().eq(1);
-    let modalAdd = modalImage.siblings().eq(2).find("#modalAddToCart");
+    let modalAdd = modalImage.siblings().eq(2).find("#modalMarkSold");
     modalImage[0].classList.add("grayscale");
 
     modalAdd[0].classList.remove("bg-fruitYellow", "text-fruitBrown");
@@ -25,7 +30,11 @@ function modalMarkSold(){
     modalAdd[0].disabled = true;
     modalAdd[0].innerHTML = "SOLD";
 
-    markFruitSold($(this).parents().eq(4).children().eq(1)[0]);
+    // console.log($(this).parents().eq(4));
+
+    markFruitSold($(this).parents().eq(4).children().eq(2)[0]);
+
+
 
   }
 }
@@ -39,10 +48,10 @@ for (let element of markSoldBtns) {
 
 function markFruitSold(element){
 
-  // console.log(element);
+  // console.log("MARK FRUIT SOLD function, element: ",element);
 
   if (element.id == "markSold") {
-    fruitImage = element.previousElementSibling.firstElementChild.firstElementChild;
+    fruitImage = element.previousElementSibling.previousElementSibling.firstElementChild.firstElementChild;
     fruitImage.classList.add("grayscale");
 
     element.innerHTML = "SOLD";
@@ -52,7 +61,7 @@ function markFruitSold(element){
 }
 
 function updateFruitSold(fruit_id) {
-  console.log(fruit_id);
+  // console.log(fruit_id);
   fetch("/sold", {
     method: "POST",
     body: JSON.stringify({id: fruit_id}),
