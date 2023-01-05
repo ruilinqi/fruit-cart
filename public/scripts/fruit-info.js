@@ -4,8 +4,14 @@ $(document).ready(function() {
 
 function modalImageMarkSold(){
   if ($(this)[0].id == "markSold"){
-    let modalImage = $(this).next().find("#modalFruitImage")[0];
-    modalImage.classList.add("grayscale");
+    let modalImage = $(this).next().find("#modalFruitImage");
+    let modalAdd = modalImage.siblings().eq(2).find("#modalAddToCart");
+    modalImage[0].classList.add("grayscale");
+
+    modalAdd[0].classList.remove("bg-fruitYellow", "text-fruitBrown");
+    modalAdd[0].classList.add("bg-fruitPink", "text-white");
+    modalAdd[0].disabled = true;
+    modalAdd[0].innerHTML = "SOLD";
   }
 }
 
