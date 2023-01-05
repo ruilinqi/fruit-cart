@@ -1,3 +1,14 @@
+$(document).ready(function() {
+  $(".addToCart").on("click",modalImageMarkSold);
+});
+
+function modalImageMarkSold(){
+  if ($(this)[0].id == "markSold"){
+    let modalImage = $(this).next().find("#modalFruitImage")[0];
+    modalImage.classList.add("grayscale");
+  }
+}
+
 const markSoldBtns = document.getElementsByClassName("addToCart");
 
 for (let element of markSoldBtns) {
@@ -5,15 +16,17 @@ for (let element of markSoldBtns) {
 }
 
 function markFruitSold(element){
-  fruitImage = element.previousElementSibling.firstElementChild.firstElementChild;
-  console.log(fruitImage);
 
-  fruitImage.classList.add("grayscale");
+  // console.log(element);
 
-  element.innerHTML = "SOLD";
-  element.disabled = true;
-  element.classList.add("bg-fruitPink", "text-white");
+  if (element.id == "markSold") {
+    fruitImage = element.previousElementSibling.firstElementChild.firstElementChild;
+    fruitImage.classList.add("grayscale");
 
+    element.innerHTML = "SOLD";
+    element.disabled = true;
+    element.classList.add("bg-fruitPink", "text-white");
+  }
 }
 
 function updateFruitSold(fruit_id) {
