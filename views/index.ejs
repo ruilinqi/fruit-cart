@@ -154,16 +154,16 @@
                 <img id="fruitImage" class="h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
                   <% } %>
                 </div>
-                
+
                 <div class="flex justify-between mt-3 mb-2">
-                  <strong class="text-fruitBrown productName text-lg flex px-5"><%= fruit.name %></strong>
-                  <strong class="text-fruitBrown productName text-lg flex px-5">$<%= fruit.price %></strong>
+                  <strong class="text-fruitBrown productName text-lg flex px-3"><%= fruit.name %></strong>
+                  <strong class="text-fruitBrown productName text-lg flex px-3">$<%= fruit.price %></strong>
                   <!--heart-->
                   <!-- <i class="fa-solid fa-circle-info" id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i> -->
                   <% if (fruit.isfavourite) { %>
-                    <i class="fa-solid fa-heart-circle-minus fav_btn" data-id="minus" data-fruitId="<%= fruit.id %>"></i>
+                    <i class="fa-solid fa-heart-circle-minus fav_btn flex px-3" data-id="minus" data-fruitId="<%= fruit.id %>"></i>
                   <% } else { %>
-                    <i class="fa-solid fa-heart-circle-plus fav_btn" data-id="plus" data-fruitId="<%= fruit.id %>"></i>
+                    <i class="fa-solid fa-heart-circle-plus fav_btn flex px-3" data-id="plus" data-fruitId="<%= fruit.id %>"></i>
                   <% } %>
                   <!--heart end-->
             </div>
