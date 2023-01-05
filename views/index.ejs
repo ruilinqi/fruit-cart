@@ -52,7 +52,7 @@
 
 </head>
 <body>
-  <main class="">
+  <main class="container none mx-auto px-4">
     <!-- navbar -->
 
 
@@ -105,9 +105,9 @@
     </div>
     <!-- banner ends -->
 
-    <div class="mainContainer m-10">
+    <div class="mainContainer m-6 pt-6">
       <!-- filters navigation starts here -->
-      <section class="filtersSection">
+      <section class="filtersSection flex flex-nowrap justify-between">
 
       <form action="/" method="GET">
         <select class="dropbtn" name="sortType">
@@ -117,7 +117,7 @@
           <option value="newPost">Posted: Newest First</option>
           <option value="oldPost">Posted: Oldest First</option>
         </select>
-        <button class="searchBtn" type="submit">Search</button>
+        <button class="searchBtn" type="submit">Apply</button>
       </form>
 
         <!-- <select class="dropbtn">
@@ -127,7 +127,7 @@
         </select> -->
         <!-- <%= user[0].isadmin == undefined %> -->
         <% if (user[0].isadmin) { %>
-          <a href="/sell">
+          <a href="/sell" class="">
             <button class="sellFruit">Sell Fruit</button>
           </a>
         <% } %>
