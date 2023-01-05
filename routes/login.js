@@ -6,7 +6,17 @@ const bcrypt = require("bcryptjs");
 
 router.get('/login', (req, res) => {
 
-  res.render("login");
+  const userID = req.session["user_id"];
+  const templateVars = {
+    user: userID,
+    session: req.session
+  };
+
+  if (userID) {
+    return res.redirect("/");
+  }
+
+  res.render("login", templateVars);
 
 });
 
@@ -27,12 +37,13 @@ router.post("/login", (req, res) => {
       }
 
       if (!bcrypt.compareSync(loginPassword, user.password)) {
-        return res
-                  .status(403)
-                  .send('Incorrect password\n<button onclick="history.back()">Back</button>');
+        return res.status(403)
+          .send('Incorrect password\n<button onclick="history.back()">Back</button>');
 
       }
       req.session["user_id"] = user.id;
+      console.log("REQ.SESSION: ",req.session);
+      console.log("USER ID after login: ",user.id);
       res.redirect("/");
       console.log("Login user_id: ", req.session.user_id);
 
@@ -40,8 +51,6 @@ router.post("/login", (req, res) => {
     .catch(err => {
       console.log("this is an error", err);
     });
-
-
 });
 
 module.exports = router;

@@ -56,6 +56,7 @@ const favouritesRoutes = require('./routes/favourites');
 const shoppingListsRoutes = require('./routes/shopping_list');
 const sellRoutes = require('./routes/sell');
 const loginRoutes = require('./routes/login');
+const logoutRoutes = require('./routes/logout');
 const signupRoutes = require('./routes/signup');
 const contactRoutes = require('./routes/contact');
 // const sortByRoutes = require('./routes/sort_by');
@@ -71,6 +72,7 @@ app.use('/favourites', favouritesRoutes);
 app.use('/shopping_cart', shoppingListsRoutes);
 app.use('/', sellRoutes);
 app.use('/', loginRoutes);
+app.use('/', logoutRoutes);
 app.use('/', signupRoutes);
 app.use('/', contactRoutes);
 // app.use('/', sortByRoutes);
@@ -84,6 +86,11 @@ app.use('/', contactRoutes);
 
 app.get("/", (req, res) => {
   const userID = req.session.user_id;
+
+  console.log("REQ.SESSION AT / route: ",req.session);
+
+
+
   let queryString = `SELECT DISTINCT fruits.*, users.id as user_id,
   users.name as seller, users.email, users.phone,
   (SELECT id FROM favourites WHERE user_id = $1 AND fruit_id = fruits.id LIMIT 1) AS isfavourite
@@ -111,20 +118,43 @@ app.get("/", (req, res) => {
   }
 
   queryString += sortBy;
-  console.log(queryString);
+  // console.log(queryString);
+
+
+  let templateVars = { user: [{}] };
+
+  // Query to select info about the currently logged in user.
+  if (req.session.user_id) {
+    let usersQuery = `SELECT isadmin FROM users WHERE id = ${req.session.user_id};`;
+    db.query(usersQuery)
+    .then(data => {
+      templateVars.user = data.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
 
   db.query(queryString, [userID])
   .then(data => {
     const templateVars = { fruits: data.rows }
-    console.log("templateVars: ", templateVars);
+    //     templateVars.fruits = data.rows;
+
+    console.log("templateVars: ",templateVars);
     res.render("index", templateVars);
   })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+
+
+
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

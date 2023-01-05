@@ -3,8 +3,23 @@ const db = require('../db/connection');
 const router  = express.Router();
 
 router.get("/sell", (req, res) => {
-  res.render("sell");
-
+    let usersQuery = `SELECT isadmin FROM users WHERE id = ${req.session.user_id};`;
+    db.query(usersQuery)
+    .then(data => {
+      isadmin = data.rows[0].isadmin;
+      if (isadmin) {
+        res.render("sell");
+      } else {
+        res
+          .status(500)
+          .json({ error: "Must be an admin to use this page." });
+      }
+    })
+    .catch(err => {
+      res
+          .status(500)
+          .json({ error: err.message });
+    });
 });
 
 router.post("/sell", (req, res) => {
