@@ -5,12 +5,17 @@ const bcrypt = require("bcryptjs");
 
 
 router.get('/login', (req, res) => {
-
   const userID = req.session["user_id"];
-  const templateVars = {
-    user: userID,
-    session: req.session
-  };
+
+  let templateVars = { user: [{}] };
+  let usersQuery = `SELECT id, email FROM users WHERE id = ${userID};`;
+    db.query(usersQuery)
+    .then(data => {
+      templateVars.user = data.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
 
   if (userID) {
     return res.redirect("/");

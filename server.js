@@ -126,7 +126,7 @@ app.get("/", (req, res) => {
 
   // Query to select info about the currently logged in user.
   if (req.session.user_id) {
-    let usersQuery = `SELECT isadmin FROM users WHERE id = ${req.session.user_id};`;
+    let usersQuery = `SELECT isadmin, email FROM users WHERE id = ${req.session.user_id};`;
     db.query(usersQuery)
     .then(data => {
       templateVars.user = data.rows;

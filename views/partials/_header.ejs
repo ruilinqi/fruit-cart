@@ -11,7 +11,8 @@
       </a>
     </div>
 
-    <% if (!user || user === undefined) { %>
+    <%= user[0].email === undefined %>
+    <% if (!user[0].email || user[0].email === undefined) { %>
     <div class="login">
       <a class="inline-block ml-auto mr-2 py-2 px-6 bg-gray-100 hover:bg-blue-300 hover:text-white text-lg text-gray font-bold rounded-xl transition duration-200 ease-in-out" href="/login">Log in</a>
       <a class="inline-block py-2 px-6 bg-blue-300 hover:bg-blue-500 text-lg text-white font-bold rounded-xl transition duration-200 ease-in-out" href="/signup">Sign up</a>
