@@ -12,37 +12,77 @@
 <link rel='stylesheet' type='text/css' media='screen' href='styles/main.css'>
 <link rel='stylesheet' type='text/css' media='screen' href='styles/index.css'>
 <link rel='stylesheet' type='text/css' media='screen' href='styles/nav.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='styles/fruit-info.css'>
 
 <!-- scripts -->
 <script src="/vendor/jquery-3.0.0.js"></script>
+<script src="/scripts/app.js"></script>
+<script src="/scripts/mark-sold.js" defer></script>
+<!-- tailwind elements plugin -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'white': '#ffffff',
+        'fruitBlue': '#d5e3f9',
+        'fruitBlueDark':'#B2D1FF',
+        'fruitYellow':'#FFF48D',
+        'fruitPink': '#DB6868',
+        'fruitPinkDark':'#7E2F2',
+        'fruitBrown': '#613206'
+    },
+      }
+    }
+  }
+</script>
 <!-- Fonts and Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 
 </head>
-
+  <!-- navbar -->
+  <%- include('partials/_header_alt') %>
 <body>
   <main>
     <div class="mainContainer">
-      <h1>Favourites</h1>
+      <!-- <h1>Favourites</h1> -->
+      <p class="text-left font-semibold mx-4 mb-0 text-header-big">Favourites</p>
 
       <section class="fruitsSection">
         <div class="fruitContainer">
+          <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-12 flex justify-center">
+
         <% for (let fruit of fruits) { %>
             <div class="product">
               <div class="buttonContainer">
-                <i class="fa-solid fa-circle-info"></i>
-                <i class="fa-solid fa-heart-circle-plus"></i>
+                <!-- <i class="fa-solid fa-circle-info"></i>
+                <i class="fa-solid fa-heart-circle-plus"></i> -->
               </div>
               <div class="productImage">
-                <img src="https://dodo.ac/np/images/9/92/Fruit_Basket_NH_Icon.png" alt="fruits">
+                <img id="fruitImage" class="h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
+                <!-- <img src="<%= fruit.fruit_picture_url %>" alt="fruits"> -->
+
               </div>
-              <h3 class="productName"><%= fruit.fruit_name %></h3>
-              <div class="priceContainer">
-                <p class="price">$<%= fruit.price %></p>
+              <div class="flex justify-between mt-3 mb-2">
+                <h3 class="productName text-fruitBrown productName text-lg flex px-5"><%= fruit.fruit_name %></h3>
+                  <p class="price text-fruitBrown productName text-lg flex px-5">$<%= fruit.price %></p>
               </div>
-              <button class="addToCart">Add to cart</button>
+              <button class="addToCart">You love it!❤️</button>
             </div>
           <% } %>
+        </div>
         </div>
       </section>
     </div>

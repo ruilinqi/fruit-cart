@@ -28,18 +28,12 @@ $(() => {
     console.log("shopping cart button click");
     const fruitId = $(event.target).attr('data-fruitId')
     let url = `/api/users/${fruitId}/shopping_cart`;
-    // if ($(event.target).attr("data-id") === "minus") {
-    //   url = `/shopping_cart/${fruitId}/delete`;
-    // }
+
      $.post(url)
     .then((result) => {
-      // if ($(event.target).attr("data-id") === "minus") {
       //   $(event.target).removeClass("cart_minus").addClass("cart_plus");
       //   $(event.target).attr("data-id", "plus");
-      // } else {
-      //   $(event.target).removeClass("cart_plus").addClass("cart_minus");
-      //   $(event.target).attr("data-id", "minus");
-      // }
+
     })
   });
 
@@ -48,20 +42,11 @@ $(() => {
     console.log("Remove itme from shopping cart button click");
     const fruitId = $(event.target).attr('data-fruitId')
     let url = `/shopping_cart/${fruitId}/delete`;
-    // if ($(event.target).attr("data-id") === "minus") {
-    //   url = `/shopping_cart/${fruitId}/delete`;
-    // }
 
      $.post(url)
     .then((result) => {
       location.reload();
-      // if ($(event.target).attr("data-id") === "minus") {
-      //   $(event.target).removeClass("cart_minus").addClass("cart_plus");
-      //   $(event.target).attr("data-id", "plus");
-      // } else {
-      //   $(event.target).removeClass("cart_plus").addClass("cart_minus");
-      //   $(event.target).attr("data-id", "minus");
-      // }
+
     })
   });
 
@@ -70,20 +55,14 @@ $(() => {
     console.log("Remove all items from shopping cart button click");
     //const fruitId = $(event.target).attr('data-fruitId')
     let url = `/shopping_cart/deleteall`;
-    // if ($(event.target).attr("data-id") === "minus") {
-    //   url = `/shopping_cart/${fruitId}/delete`;
-    // }
+
 
      $.post(url)
     .then((result) => {
       location.reload();
-      // if ($(event.target).attr("data-id") === "minus") {
-      //   $(event.target).removeClass("cart_minus").addClass("cart_plus");
-      //   $(event.target).attr("data-id", "plus");
-      // } else {
-      //   $(event.target).removeClass("cart_plus").addClass("cart_minus");
-      //   $(event.target).attr("data-id", "minus");
-      // }
+
     })
   });
+
 });
+

@@ -16,6 +16,7 @@
 <script src="/vendor/jquery-3.0.0.js"></script>
 <script src="/scripts/app.js"></script>
 <script src="/scripts/mark-sold.js" defer></script>
+<script src="/scripts/remove-product.js" defer></script>
 
 <!-- tailwind elements plugin -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -39,7 +40,8 @@
         'fruitYellow':'#FFF48D',
         'fruitPink': '#DB6868',
         'fruitPinkDark':'#7E2F2',
-        'fruitBrown': '#613206'
+        'fruitBrown': '#613206',
+        'dangerRed': '#FF0000'
     },
       }
     }
@@ -141,7 +143,7 @@
       <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-12 flex justify-center">
       <% for (let fruit of fruits) { %>
 
-          <div class="product cursor-pointer relative overflow-hidden bg-no-repeat bg-cover max-w-xs" >
+          <div class="product fruit_id-<%= fruit.id %> cursor-pointer relative overflow-hidden bg-no-repeat bg-cover max-w-xs" >
             <% if (!user[0].isadmin) { %>
               <div class="click-to-pop " id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= fruit.id %>">
             <% } else { %>
@@ -230,12 +232,22 @@
                   </div>
                   <div
                     class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-                    <a href="/contact">
+
+                    <% if (user[0].isadmin) { %>
                     <button type="button"
-                      class="inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPink active:shadow-lg transition duration-150 ease-in-out">
-                      EMAIL SELLER
+                      class="removeProductBtn inline-block tracking-wider px-6 py-2.5 bg-dangerRed text-white font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-white hover:text-dangerRed hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPink active:shadow-lg transition duration-150 ease-in-out" onclick="removeProduct(<%= fruit.id %>)" data-bs-dismiss="modal">
+                      REMOVE
                     </button>
-                    </a>
+
+                    <% } else { %>
+                      <a href="/contact">
+                        <button type="button"
+                          class="inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPink active:shadow-lg transition duration-150 ease-in-out">
+                          EMAIL SELLER
+                        </button>
+                        </a>
+                    <% } %>
+
                     <% if (fruit.issold) { %>
                       <button disabled type="button"
                       class="inline-block tracking-wider px-6 py-2.5 bg-fruitPink text-white font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPinkactive:shadow-lg transition duration-150 ease-in-out ml-1">
