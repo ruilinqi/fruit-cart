@@ -143,3 +143,18 @@
   background-color: #DB6868;
   color: white;
 }
+ /* removeAll button */
+
+.removeAll {
+  background-color: #DB6868!important;
+  color: #FFF!important;
+  padding: 16px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.removeAll:hover {
+  background-color: #7E2F2F;
+}

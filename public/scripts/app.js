@@ -43,6 +43,7 @@ $(() => {
     })
   });
 
+  // Click on the Remove from Cart button
   $(".cart_remove_btn").click((event) => {
     console.log("Remove itme from shopping cart button click");
     const fruitId = $(event.target).attr('data-fruitId')
@@ -50,8 +51,32 @@ $(() => {
     // if ($(event.target).attr("data-id") === "minus") {
     //   url = `/shopping_cart/${fruitId}/delete`;
     // }
+
      $.post(url)
     .then((result) => {
+      location.reload();
+      // if ($(event.target).attr("data-id") === "minus") {
+      //   $(event.target).removeClass("cart_minus").addClass("cart_plus");
+      //   $(event.target).attr("data-id", "plus");
+      // } else {
+      //   $(event.target).removeClass("cart_plus").addClass("cart_minus");
+      //   $(event.target).attr("data-id", "minus");
+      // }
+    })
+  });
+
+  // Click on the RemoveAll from Cart button
+  $(".cart_removeall_btn").click((event) => {
+    console.log("Remove all items from shopping cart button click");
+    //const fruitId = $(event.target).attr('data-fruitId')
+    let url = `/shopping_cart/deleteall`;
+    // if ($(event.target).attr("data-id") === "minus") {
+    //   url = `/shopping_cart/${fruitId}/delete`;
+    // }
+
+     $.post(url)
+    .then((result) => {
+      location.reload();
       // if ($(event.target).attr("data-id") === "minus") {
       //   $(event.target).removeClass("cart_minus").addClass("cart_plus");
       //   $(event.target).attr("data-id", "plus");
