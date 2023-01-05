@@ -28,7 +28,8 @@ router.post("/sell", (req, res) => {
   const description = req.body.description;
   const imageURL = req.body.imageURL; // Changed fruit_picture_url to imageURL.
   const price = req.body.price;
-  const ownerID = 3;
+  const ownerID = req.session.user_id;
+  console.log("ownerID", ownerID);
   // const ownerID = req.session.owner_id;
   const isSold = false;
   // const listTime = req.body.list_time;
@@ -48,6 +49,30 @@ router.post("/sell", (req, res) => {
           .status(500)
           .json({ error: err.message });
     });
-})
+});
+
+router.post("/sold", (req, res) => {
+  console.log(req.body);
+
+  fruit_id = req.body.id;
+
+  let fruitUpdate = `UPDATE fruits SET issold = true WHERE id = ${fruit_id} RETURNING *;`;
+  db.query(fruitUpdate)
+  .then(data => {
+    updated = data.rows[0].issold;
+    console.log(updated);
+    if (!updated) {
+      res
+        .status(500)
+        .json({ error: "The item could not be marked as sold." });
+    }
+  })
+  .catch(err => {
+    res
+        .status(500)
+        .json({ error: err.message });
+  });
+
+});
 
 module.exports = router;
