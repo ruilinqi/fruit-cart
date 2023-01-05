@@ -99,23 +99,23 @@ app.get("/", (req, res) => {
   JOIN users ON fruits.owner_id = users.id
   ORDER BY `;
   let sortType = req.query.sortType;
-  let sortBy = "fruits.price;";
+  let sortBy = "fruits.list_time DESC;";
 
-  if (sortType === "highPrice") {
-    console.log("highPrice");
-    sortBy = "fruits.price DESC;";
-  }
   if (sortType === "lowPrice") {
     console.log("lowPrice");
     sortBy = "fruits.price ASC;";
   }
+  if (sortType === "highPrice") {
+    console.log("highPrice");
+    sortBy = "fruits.price DESC;";
+  }
   if (sortType === "newPost") {
     console.log("newPost");
-    sortBy = "fruits.list_time ASC;";
+    sortBy = "fruits.list_time DESC;";
   }
   if (sortType === "oldPost") {
     console.log("oldPost");
-    sortBy = "fruits.list_time DESC;";
+    sortBy = "fruits.list_time ASC;";
   }
 
   queryString += sortBy;
