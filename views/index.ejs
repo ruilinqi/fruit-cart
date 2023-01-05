@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fruit Cart</title>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<!-- stylesheets -->
+<link rel='stylesheet' type='text/css' media='screen' href='styles/layout.css'>
+<link rel='stylesheet' type='text/css' media='screen' href='styles/index.css'>
+
+<link rel='stylesheet' type='text/css' media='screen' href='styles/fruit-info.css'>
+
+<!-- scripts -->
+<script src="/vendor/jquery-3.0.0.js"></script>
+<script src="/scripts/app.js"></script>
+<script src="/scripts/mark-sold.js" defer></script>
+<script src="/scripts/remove-product.js" defer></script>
+
+<!-- tailwind elements plugin -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'white': '#ffffff',
+        'fruitBlue': '#d5e3f9',
+        'fruitBlueDark':'#B2D1FF',
+        'fruitYellow':'#FFF48D',
+        'fruitPink': '#DB6868',
+        'fruitPinkDark':'#7E2F2',
+        'fruitBrown': '#613206',
+        'dangerRed': '#FF0000'
+    },
+      }
+    }
+  }
+</script>
+
+<!-- Fonts and Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <main class="container none mx-auto px-4">
+    <!-- navbar -->
+
+
+    <%- include('partials/_header') %>
+
+
+    <!-- banner -->
+    <div id="carouselExampleControls" class="carousel slide relative" data-bs-ride="carousel">
+      <div class="carousel-inner relative w-full overflow-hidden">
+        <div class="carousel-item active relative float-left w-full">
+      <img
+        src="https://images.unsplash.com/photo-1584559582128-b8be739912e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80"
+        class="block w-full min-h-[16rem] max-h-[32rem] object-cover"
+        alt="Wild Landscape"
+      />
+        </div>
+        <div class="carousel-item relative float-left w-full">
+      <img
+        src="https://images.unsplash.com/photo-1584559582213-787a2953dcbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80"
+        class="block w-full min-h-[16rem] max-h-[32rem] object-cover"
+        alt="Camera"
+      />
+        </div>
+        <div class="carousel-item relative float-left w-full">
+      <img
+        src="https://images.unsplash.com/photo-1595475207225-428b62bda831?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80"
+        class="block w-full min-h-[16rem] max-h-[32rem] object-cover"
+        alt="Exotic Fruits"
+      />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center  border-0    hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0    hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- banner ends -->
+
+    <div class="mainContainer m-6 pt-6">
+      <!-- filters navigation starts here -->
+      <section class="filtersSection flex flex-nowrap justify-between">
+
+      <form action="/" method="GET">
+        <select class="dropbtn" name="sortType">
+          <option selected disabled>Sort By</option>
+          <option value="lowPrice">Price: Lowest First</option>
+          <option value="highPrice">Price: Highest First</option>
+          <option value="newPost">Posted: Newest First</option>
+          <option value="oldPost">Posted: Oldest First</option>
+        </select>
+        <button class="searchBtn" type="submit">Apply</button>
+      </form>
+
+        <!-- <select class="dropbtn">
+          <option selected disabled>Filter</option>
+          <option>All Fruit</option>
+          <option>My Fruit</option>
+        </select> -->
+        <!-- <%= user[0].isadmin == undefined %> -->
+        <% if (user[0].isadmin) { %>
+          <a href="/sell" class="">
+            <button class="sellFruit">Sell Fruit</button>
+          </a>
+        <% } %>
+
+
+      </section>
+
+      <!-- Fruits Listings -->
+      <section class="fruitsSection">
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-12 flex justify-center">
+      <% for (let fruit of fruits) { %>
+
+          <div class="product fruit_id-<%= fruit.id %> cursor-pointer relative overflow-hidden bg-no-repeat bg-cover max-w-xs" >
+            <% if (!user[0].isadmin) { %>
+              <div class="click-to-pop " id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= fruit.id %>">
+            <% } else { %>
+              <div class="click-to-pop " id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= fruit.id %>">
+            <% } %>
+              <div class="productImage rounded-t-2xl mb-1  max-w-xs hover:scale-105 transition duration-300 ease-in-out">
+                <% if (fruit.issold) { %>
+                  <img id="fruitImage" class="grayscale h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
+                <% } else { %>
+                  <img id="fruitImage" class="h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
+                <% } %>
+              </div>
+            </div>
+              <!--heart-->
+              <!-- <i class="fa-solid fa-circle-info" id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"></i> -->
+              <!--heart end-->
+
+              <div class="flex justify-between mt-3 mb-2">
+                <strong class="text-fruitBrown productName text-lg flex px-5"><%= fruit.name %></strong>
+                <strong class="text-fruitBrown productName text-lg flex px-5">$<%= fruit.price %></strong>
+                <% if (fruit.isfavourite) { %>
+                  <i class="fa-solid fa-heart-circle-minus fav_btn flex px-5" data-id="minus" data-fruitId="<%= fruit.id %>"></i>
+                <% } else { %>
+                  <i class="fa-solid fa-heart-circle-plus fav_btn flex px-5" data-id="plus" data-fruitId="<%= fruit.id %>"></i>
+                <% } %>
+
+              </div>
+
+            <% if (user[0].isadmin) { %>
+              <% if (fruit.issold) { %>
+                <button disabled id="markSold" class="addToCart bg-fruitPink text-white" onclick="updateFruitSold(<%= fruit.id %>)">Sold</button>
+              <% } else { %>
+                <button id="markSold" class="addToCart" onclick="updateFruitSold(<%= fruit.id %>)">Mark Sold</button>
+                <% } %>
+            <% } else { %>
+              <% if (fruit.issold) { %>
+                <button disabled class="addToCart bg-fruitPink text-white" onclick="updateFruitSold(<%= fruit.id %>)">Sold</button>
+              <% } else { %>
+              <!-- <button class="addToCart">Add to cart</button> -->
+                <!-- <% if (fruit.isshop) { %>
+                  <% } %> -->
+                  <button class="add_to_cart cart_btn cart_plus" data-id="plus" data-fruitId="<%= fruit.id %>">Add to cart</button>
+                  <!-- <button class="add_to_cart cart_btn cart_minus" data-id="minus" data-fruitId="<%= fruit.id %>">Remove from cart</button> -->
+              <% } %>
+            <% } %>
+
+            <!-- More info Popup -->
+
+
+
+            <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto backdrop-blur" id="exampleModalCenter<%= fruit.id %>" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
+              <div class="modal-dialog modal-dialog-centered relative w-auto pointer-events-none">
+                <div class="modal-content border-none shadow-2xl relative flex flex-col w-full pointer-events-auto bg-fruitBlue bg-clip-padding rounded-2xl outline-none text-current">
+                  <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                    <div>
+                    <h5 class="text-xl font-medium leading-normal text-fruitBrown" id="exampleModalScrollableLabel">
+                      <%= fruit.name %> $<%= fruit.price %>
+                    </h5>
+                    </div>
+                    <div class="">
+                    <button type="button"
+                      class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-100 focus:shadow-none focus:outline-none focus:opacity-100"
+                      data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                      </div>
+                  </div>
+
+                  <% if (fruit.issold) { %>
+                    <img id="modalFruitImage" class="mx-5 object-scale-down rounded-2xl grayscale"src="<%= fruit.fruit_picture_url %>">
+                  <% } else { %>
+                    <img id="modalFruitImage" class="mx-5 object-scale-down rounded-2xl"src="<%= fruit.fruit_picture_url %>">
+                  <% } %>
+
+                  <div class="modal-body relative p-4 flex justify-between">
+                    <div>
+                      <strong class="text-fruitBrown">Description:</strong>
+                      <p class="text-fruitBrown"><%= fruit.description %></p>
+                    </div>
+                    <div class="align-center">
+                      <!-- <i class="fa-solid fa-heart-circle-plus"></i> -->
+                      <% if (fruit.isfavourite) { %>
+                        <i class="fa-solid fa-heart-circle-minus fav_btn" data-id="minus" data-fruitId="<%= fruit.id %>"></i>
+                      <% } else { %>
+                        <i class="fa-solid fa-heart-circle-plus fav_btn" data-id="plus" data-fruitId="<%= fruit.id %>"></i>
+                      <% } %>
+                    </div>
+                  </div>
+                  <div
+                    class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+
+                    <% if (user[0].isadmin) { %>
+                    <button type="button"
+                      class="removeProductBtn inline-block tracking-wider px-6 py-2.5 bg-dangerRed text-white font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-white hover:text-dangerRed hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPink active:shadow-lg transition duration-150 ease-in-out" onclick="removeProduct(<%= fruit.id %>)" data-bs-dismiss="modal">
+                      REMOVE
+                    </button>
+
+                    <% } else { %>
+                      <a href="/contact">
+                        <button type="button"
+                          class="inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPink active:shadow-lg transition duration-150 ease-in-out">
+                          EMAIL SELLER
+                        </button>
+                        </a>
+                    <% } %>
+
+                    <% if (fruit.issold) { %>
+                      <button disabled type="button"
+                      class="inline-block tracking-wider px-6 py-2.5 bg-fruitPink text-white font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPinkactive:shadow-lg transition duration-150 ease-in-out ml-1">
+                      SOLD
+                    </button>
+                    <% } else { %>
+
+                      <% if (user[0].isadmin) { %>
+                        <button id="modalMarkSold" type="button"
+                        class="cart_btn cart_plus inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPink active:shadow-lg transition duration-150 ease-in-out ml-1" data-id="plus" data-fruitId="<%= fruit.id %>" onclick="updateFruitSold(<%= fruit.id %>)">
+                        MARK SOLD
+                      </button>
+                      <% } else { %>
+                    <button id="modalAddToCart" type="button"
+                      class="cart_btn inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPink active:shadow-lg transition duration-150 ease-in-out ml-1" data-fruitId="<%= fruit.id %>">
+                      ADD TO CART
+                    </button>
+                      <% } %>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        <% } %>
+      </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <%- include('partials/_footer') %>
+  </footer>
+
+  <!-- tailwind element plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+</body>
+</html>
