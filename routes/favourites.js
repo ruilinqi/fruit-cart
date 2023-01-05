@@ -20,8 +20,7 @@ router.get("/", (req, res) => {
   });
 });
 
-
-// Cancel favourite mark on a fruit
+// Delete fruits from favourites
 router.post("/:fruit_id/delete", (req, res) => {
   const fruitId = req.params.fruit_id;
   const userID = req.session.user_id;

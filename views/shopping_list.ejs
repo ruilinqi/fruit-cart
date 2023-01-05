@@ -19,7 +19,7 @@
 
   <!-- scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
-
+  <script src="/scripts/app.js"></script>
 </head>
 
 <body>
@@ -27,7 +27,8 @@
     <div class="mainContainer">
       <div class="shoppingCartHeader">
         <h1 class="cartHeading">Shopping Cart</h1>
-        <h3 class="removeAll">Remove all</h3>
+
+        <button class="removeAll cart_removeall_btn cart_minus" data-id="minus">Remove all</button>
       </div>
 
       <section class="shoppingCartSection">
@@ -45,7 +46,9 @@
               <div class="priceContainer">
                 <p class="price">$<%= fruit.price %></p>
               </div>
-              <button class="removeItem">Remove</button>
+              <!-- <button class="add_to_cart cart_btn cart_plus" data-id="plus" data-fruitId="<%= fruit.id %>">Add to cart</button> -->
+
+              <button class="cart_remove_btn removeItem cart_minus" data-id="minus" data-fruitId="<%= fruit.fruit_id %>">Remove</button>
             </div>
           <% } %>
         </div>
