@@ -49,6 +49,30 @@ router.post("/sell", (req, res) => {
           .status(500)
           .json({ error: err.message });
     });
-})
+});
+
+router.post("/sold", (req, res) => {
+  console.log(req.body);
+
+  fruit_id = req.body.id;
+
+  let fruitUpdate = `UPDATE fruits SET issold = true WHERE id = ${fruit_id} RETURNING *;`;
+  db.query(fruitUpdate)
+  .then(data => {
+    updated = data.rows[0].issold;
+    console.log(updated);
+    if (!updated) {
+      res
+        .status(500)
+        .json({ error: "The item could not be marked as sold." });
+    }
+  })
+  .catch(err => {
+    res
+        .status(500)
+        .json({ error: err.message });
+  });
+
+});
 
 module.exports = router;

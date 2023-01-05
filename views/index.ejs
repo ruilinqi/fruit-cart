@@ -129,10 +129,15 @@
 
       <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-12 flex justify-center">
       <% for (let fruit of fruits) { %>
+
           <div class="product cursor-pointer relative overflow-hidden bg-no-repeat bg-cover max-w-xs" >
             <div class="click-to-pop " id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= fruit.id %>">
               <div class="productImage rounded-t-2xl mb-1  max-w-xs hover:scale-105 transition duration-300 ease-in-out">
-                <img class="h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
+                <% if (fruit.issold) { %>
+                  <img id="fruitImage" class="grayscale h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
+                  <% } else { %>
+                <img id="fruitImage" class="h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
+                  <% } %>
               </div>
 
               <!--heart-->
@@ -156,7 +161,16 @@
                 <strong class="text-fruitBrown productName text-lg flex px-5">$<%= fruit.price %></strong>
             </div>
             </div>
+
+            <% if (user[0].isadmin) { %>
+              <% if (fruit.issold) { %>
+                <button disabled id="markSold" class="addToCart bg-fruitPink text-white" onclick="updateFruitSold(<%= fruit.id %>)">Sold</button>
+              <% } else { %>
+                <button id="markSold" class="addToCart" onclick="updateFruitSold(<%= fruit.id %>)">Mark Sold</button>
+                <% } %>
+            <% } else { %>
             <button class="addToCart">Add to cart</button>
+            <% } %>
 
             <!-- More info Popup -->
 
