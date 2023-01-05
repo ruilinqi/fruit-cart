@@ -30,6 +30,18 @@
         fontFamily: {
           sans: ['Inter', 'sans-serif'],
         },
+
+      colors: {
+        transparent: 'transparent',
+        current: 'currentColor',
+        'white': '#ffffff',
+        'fruitBlue': '#d5e3f9',
+        'fruitBlueDark':'#B2D1FF',
+        'fruitYellow':'#FFF48D',
+        'fruitPink': '#DB6868',
+        'fruitPinkDark':'#7E2F2',
+        'fruitBrown': '#613206'
+    },
       }
     }
   }
@@ -169,8 +181,14 @@
                 <button id="markSold" class="addToCart" onclick="updateFruitSold(<%= fruit.id %>)">Mark Sold</button>
                 <% } %>
             <% } else { %>
-              <button class="addToCart">Add to cart</button>
-
+            <!-- <button class="addToCart">Add to cart</button> -->
+              <% if (fruit.isshop) { %>
+                <button class="add_to_cart cart_btn cart_minus" data-id="minus" data-fruitId="<%= fruit.id %>">Remove from cart</button>
+                <!-- <i class="fa-solid fa-heart-circle-minus cart_btn" data-id="minus" data-fruitId="<%= fruit.id %>"></i> -->
+              <% } else { %>
+                <button class="add_to_cart cart_btn cart_plus" data-id="plus" data-fruitId="<%= fruit.id %>">Add to cart</button>
+                <!-- <i class="fa-solid fa-heart-circle-plus cart_btn" data-id="plus" data-fruitId="<%= fruit.id %>"></i> -->
+              <% } %>
             <% } %>
 
             <!-- More info Popup -->
