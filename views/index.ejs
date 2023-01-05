@@ -106,7 +106,7 @@
           <option value="newPost">Posted: Oldest First</option>
           <option value="oldPost">Posted: Newest First</option>
         </select>
-        <button type="submit">Search</button>
+        <button class="searchBtn" type="submit">Search</button>
       </form>
 
         <!-- <select class="dropbtn">
@@ -169,7 +169,8 @@
                 <button id="markSold" class="addToCart" onclick="updateFruitSold(<%= fruit.id %>)">Mark Sold</button>
                 <% } %>
             <% } else { %>
-            <button class="addToCart">Add to cart</button>
+              <button class="addToCart">Add to cart</button>
+
             <% } %>
 
             <!-- More info Popup -->
@@ -216,7 +217,7 @@
                       EMAIL SELLER
                     </button>
                     <button type="button"
-                      class="inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPinkactive:shadow-lg transition duration-150 ease-in-out ml-1">
+                      class="cart_btn inline-block tracking-wider px-6 py-2.5 bg-fruitYellow text-fruitBrown font-extrabold text-sm leading-tight uppercase rounded shadow-md hover:bg-fruitPink hover:text-white hover:shadow-lg focus:bg-fruitPink focus:shadow-lg focus:outline-none focus:ring-0 active:bg-fruitPinkactive:shadow-lg transition duration-150 ease-in-out ml-1" data-fruitId="<%= fruit.id %>">
                       ADD TO CART
                     </button>
                   </div>
