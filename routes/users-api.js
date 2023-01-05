@@ -42,3 +42,22 @@ router.post("/:fruit_id/favourite", (req, res) => {
 });
 
 module.exports = router;
+
+// add item to shopping cart
+router.post("/:fruit_id/shopping_cart", (req, res) => {
+  console.log(req.body);
+  const fruitId = req.params.fruit_id;
+  const userID = req.session.user_id;
+  console.log("fruitId: ", fruitId)
+  console.log("userID: ", userID)
+  const sql = `INSERT INTO shopping_list (user_id, fruit_id) VALUES ($1, $2) RETURNING *;`
+  db.query(sql, [userID, fruitId])
+  .then(data => {
+    res.redirect("/")
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});

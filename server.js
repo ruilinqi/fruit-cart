@@ -93,28 +93,29 @@ app.get("/", (req, res) => {
 
   let queryString = `SELECT DISTINCT fruits.*, users.id as user_id,
   users.name as seller, users.email, users.phone,
-  (SELECT id FROM favourites WHERE user_id = $1 AND fruit_id = fruits.id LIMIT 1) AS isfavourite
+  (SELECT id FROM favourites WHERE user_id = $1 AND fruit_id = fruits.id LIMIT 1) AS isfavourite,
+  (SELECT id FROM shopping_list WHERE user_id = $1 AND fruit_id = fruits.id LIMIT 1) AS isshop
   FROM fruits
   JOIN users ON fruits.owner_id = users.id
   ORDER BY `;
   let sortType = req.query.sortType;
-  let sortBy = "fruits.price;";
+  let sortBy = "fruits.list_time DESC;";
 
-  if (sortType === "highPrice") {
-    console.log("highPrice");
-    sortBy = "fruits.price DESC;";
-  }
   if (sortType === "lowPrice") {
     console.log("lowPrice");
     sortBy = "fruits.price ASC;";
   }
+  if (sortType === "highPrice") {
+    console.log("highPrice");
+    sortBy = "fruits.price DESC;";
+  }
   if (sortType === "newPost") {
     console.log("newPost");
-    sortBy = "fruits.list_time ASC;";
+    sortBy = "fruits.list_time DESC;";
   }
   if (sortType === "oldPost") {
     console.log("oldPost");
-    sortBy = "fruits.list_time DESC;";
+    sortBy = "fruits.list_time ASC;";
   }
 
   queryString += sortBy;
@@ -149,8 +150,6 @@ app.get("/", (req, res) => {
       .status(500)
       .json({ error: err.message });
   });
-
-
 
 });
 

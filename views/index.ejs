@@ -30,6 +30,7 @@
         fontFamily: {
           sans: ['Inter', 'sans-serif'],
         },
+
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
@@ -112,10 +113,10 @@
       <form action="/" method="GET">
         <select class="dropbtn" name="sortType">
           <option selected disabled>Sort By</option>
-          <option value="highPrice">Price: Highest First</option>
           <option value="lowPrice">Price: Lowest First</option>
-          <option value="newPost">Posted: Oldest First</option>
-          <option value="oldPost">Posted: Newest First</option>
+          <option value="highPrice">Price: Highest First</option>
+          <option value="newPost">Posted: Newest First</option>
+          <option value="oldPost">Posted: Oldest First</option>
         </select>
         <button class="searchBtn" type="submit">Search</button>
       </form>
@@ -187,7 +188,11 @@
               <% if (fruit.issold) { %>
                 <button disabled class="addToCart bg-fruitPink text-white" onclick="updateFruitSold(<%= fruit.id %>)">Sold</button>
               <% } else { %>
-                <button class="addToCart">Add to cart</button>
+              <!-- <button class="addToCart">Add to cart</button> -->
+                <!-- <% if (fruit.isshop) { %>
+                  <% } %> -->
+                  <button class="add_to_cart cart_btn cart_plus" data-id="plus" data-fruitId="<%= fruit.id %>">Add to cart</button>
+                  <!-- <button class="add_to_cart cart_btn cart_minus" data-id="minus" data-fruitId="<%= fruit.id %>">Remove from cart</button> -->
               <% } %>
             <% } %>
 
