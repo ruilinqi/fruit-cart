@@ -2,24 +2,31 @@
 
 <header>
     <!-- nav bar -->
-    <nav class="relative px-16 py-4 flex justify-between items-center bg-blue-100">
-      <!-- logo -->
-      <a class="text-3xl font-bold cursor-pointer" herf="/">LOGO</a>
-      <!-- login -->
-      <div class="login">
-        <a class="inline-block ml-auto mr-3 py-2 px-6 bg-gray-200 hover:bg-blue-300 text-lg text-gray font-bold rounded-xl transition duration-200 ease-in-out" href="/favourites">Favourites</a>
-        <a class="inline-block ml-auto mr-3 py-2 px-6 bg-gray-200 hover:bg-blue-300 text-lg text-gray font-bold rounded-xl transition duration-200 ease-in-out" href="/shopping_cart">Shopping Cart</a>
+<nav class="relative w-full flex flex-wrap items-center justify-between py-2 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg">
+  <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
+    <div class="container-fluid">
+      <a class="flex items-center text-gray-900 hover:text-gray-900 focus:text-gray-900 mt-2 lg:mt-0 mr-1" href="#">
+        <img src="../assets/fruitcart-logo.png" class="object-cover h-12 w-12 " alt="" loading="lazy" />
+        <img src="../assets/fruitcart-logo2.png" class="object-cover h-12 w-12 " alt="" loading="lazy" />
+      </a>
+    </div>
 
-        <a class="inline-block ml-auto mr-3 py-2 px-6 bg-gray-200 hover:bg-blue-300 text-lg text-gray font-bold rounded-xl transition duration-200 ease-in-out" href="/login">Log in</a>
-        <a class="inline-block py-2 px-6 bg-blue-300 hover:bg-blue-500 text-lg text-white font-bold rounded-xl  transition duration-200 ease-in-out" href="/signup">Sign up</a>
-
+    <% if (!user || user === undefined) { %>
+    <div class="login">
+      <a class="inline-block ml-auto mr-2 py-2 px-6 bg-gray-100 hover:bg-blue-300 hover:text-white text-lg text-gray font-bold rounded-xl transition duration-200 ease-in-out" href="/login">Log in</a>
+      <a class="inline-block py-2 px-6 bg-blue-300 hover:bg-blue-500 text-lg text-white font-bold rounded-xl transition duration-200 ease-in-out" href="/signup">Sign up</a>
+    </div>
+    <% } else { %>
+    <div class="login">
+        <a class="inline-block ml-auto mr-3 py-2 px-6 bg-gray-200 hover:bg-blue-300 hover:text-white text-lg text-gray font-bold rounded-xl transition duration-200 ease-in-out" href="/favs">My Favs</a>
+        <a class="inline-block ml-auto mr-3 py-2 px-6 bg-gray-200 hover:bg-blue-300 hover:text-white text-lg text-gray font-bold rounded-xl transition duration-200 ease-in-out" href="/cart">My Cart</a>
+        <form action="/logout" method="POST" class="inline-block py-2 px-6 bg-red-300 hover:bg-red-500 text-lg text-white font-bold rounded-xl  transition duration-200 ease-in-out">
+        <button type="submit" class="outline-0">Log out</button>
+        </form>
       </div>
-
-        <!-- <a class="inline-block ml-auto mr-3 py-2 px-6 bg-gray-200 hover:bg-blue-300 text-lg text-gray font-bold rounded-xl transition duration-200 ease-in-out" href="/#">User</a>
-        <a class="inline-block py-2 px-6 bg-blue-300 hover:bg-blue-500 text-lg text-white font-bold rounded-xl  transition duration-200 ease-in-out" href="/logout">Log out</a> -->
-
-
-    </nav>
+    <% } %>
+  </div>
+</nav>
 
     <!-- Nav ends here -->
 
