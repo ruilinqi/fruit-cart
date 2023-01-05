@@ -53,7 +53,7 @@
 <body>
   <main class="">
     <!-- navbar -->
-
+    <%- include('partials/_header') %>
 
     <!-- banner -->
     <div id="carouselExampleControls" class="carousel slide relative" data-bs-ride="carousel">
@@ -139,7 +139,7 @@
       <!-- Fruits Listings -->
       <section class="fruitsSection">
 
-      <div class="grid grid-cols-3 gap-10 pt-12">
+      <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-12 flex justify-center">
       <% for (let fruit of fruits) { %>
           <div class="product cursor-pointer relative overflow-hidden bg-no-repeat bg-cover max-w-xs" >
             <div class="click-to-pop " id="moreInfoBtn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= fruit.id %>">
