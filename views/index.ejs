@@ -53,7 +53,10 @@
 <body>
   <main class="">
     <!-- navbar -->
-    <%- include('partials/_header') %>
+
+
+    <%- include('partials/_logout') %>
+
 
     <!-- banner -->
     <div id="carouselExampleControls" class="carousel slide relative" data-bs-ride="carousel">
@@ -116,16 +119,11 @@
         <button type="submit">Search</button>
       </form>
 
-
-        <a href="/sell">
-        <button class="sellFruit">Sell Fruit</button>
-        </a>
-
-        <select class="dropbtn">
+        <!-- <select class="dropbtn">
           <option selected disabled>Filter</option>
           <option>All Fruit</option>
           <option>My Fruit</option>
-        </select>
+        </select> -->
 
         <% if (user[0].isadmin) { %>
           <a href="/sell">

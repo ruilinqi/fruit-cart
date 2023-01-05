@@ -50,12 +50,6 @@ router.post("/login", (req, res) => {
     .catch(err => {
       console.log("this is an error", err);
     });
-
-  router.post("/logout", (req, res) => {
-    res.clearCookie('username');
-    res.redirect("/");
-  });
-
 });
 
 module.exports = router;

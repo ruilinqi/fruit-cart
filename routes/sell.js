@@ -6,10 +6,7 @@ router.get("/sell", (req, res) => {
     let usersQuery = `SELECT isadmin FROM users WHERE id = ${req.session.user_id};`;
     db.query(usersQuery)
     .then(data => {
-      console.log("DATA.ROWS: ", data.rows);
-
       isadmin = data.rows[0].isadmin;
-
       if (isadmin) {
         res.render("sell");
       } else {
