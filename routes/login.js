@@ -47,11 +47,7 @@ router.post("/login", (req, res) => {
 
       }
       req.session["user_id"] = user.id;
-      console.log("REQ.SESSION: ",req.session);
-      console.log("USER ID after login: ",user.id);
       res.redirect("/");
-      console.log("Login user_id: ", req.session.user_id);
-
     })
     .catch(err => {
       console.log("this is an error", err);
