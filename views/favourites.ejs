@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Users</title>
+  <title>Fruit Cart</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -52,13 +52,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 
 </head>
-  <!-- navbar -->
-  <%- include('partials/_header_alt') %>
+
 <body>
-  <main>
+  <main class="container none mx-auto px-4">
+    <!-- navbar -->
+    <%- include('partials/_header_alt') %>
     <div class="mainContainer">
       <!-- <h1>Favourites</h1> -->
-      <p class="text-left font-semibold mx-4 mb-0 text-header-big">Favourites</p>
+      <p class="text-left font-semibold mx-4 my-2 text-header-big">Your Favourites</p>
 
       <section class="fruitsSection">
         <div class="fruitContainer">
@@ -66,20 +67,17 @@
 
         <% for (let fruit of fruits) { %>
             <div class="product">
-              <div class="buttonContainer">
-                <!-- <i class="fa-solid fa-circle-info"></i>
-                <i class="fa-solid fa-heart-circle-plus"></i> -->
-              </div>
+
               <div class="productImage">
-                <img id="fruitImage" class="h-48 w-full object-cover" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
+                <img id="fruitImage" class="h-48 w-full object-cover rounded-t-2xl" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
                 <!-- <img src="<%= fruit.fruit_picture_url %>" alt="fruits"> -->
 
               </div>
-              <div class="flex justify-between mt-3 mb-2">
+              <div class="flex justify-between py-2">
                 <h3 class="productName text-fruitBrown productName text-lg flex px-5"><%= fruit.fruit_name %></h3>
                   <p class="price text-fruitBrown productName text-lg flex px-5">$<%= fruit.price %></p>
               </div>
-              <button class="addToCart">You love it!❤️</button>
+              <button class="addToCart content-center"><p>You love it!</p><span> <i class="fa-solid fa-heart"></i> </span></button>
             </div>
           <% } %>
         </div>
