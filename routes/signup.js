@@ -5,8 +5,19 @@ const bcrypt = require("bcryptjs");
 
 
 router.get("/signup", (req, res) => {
+  const userID = req.session["user_id"];
 
-  res.render("signup");
+  let templateVars = { user: [{}] };
+  let usersQuery = `SELECT id, email FROM users WHERE id = ${userID};`;
+    db.query(usersQuery)
+    .then(data => {
+      templateVars.user = data.rows;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  console.log("TEMPLATE VARS: ",templateVars);
+  res.render("signup", templateVars);
 
 });
 
@@ -18,7 +29,7 @@ router.post("/signup", (req, res) => {
   const email = req.body.email;
   const phone = req.body.phone;
   const pictureURL = "";
-  const isAdmin = true;
+  const isAdmin = false;
 
 
   const sql = `INSERT INTO users (name, password, email, phone, picture_url, isAdmin) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`;

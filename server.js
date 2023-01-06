@@ -59,6 +59,7 @@ const loginRoutes = require('./routes/login');
 const logoutRoutes = require('./routes/logout');
 const signupRoutes = require('./routes/signup');
 const contactRoutes = require('./routes/contact');
+const removeRoute = require('./routes/route-remove-product');
 // const sortByRoutes = require('./routes/sort_by');
 
 // Mount all resource routes
@@ -75,6 +76,7 @@ app.use('/', loginRoutes);
 app.use('/', logoutRoutes);
 app.use('/', signupRoutes);
 app.use('/', contactRoutes);
+app.use('/', removeRoute);
 // app.use('/', sortByRoutes);
 
 
