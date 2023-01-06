@@ -162,12 +162,12 @@
               <!--heart end-->
 
               <div class="flex justify-between mt-3 mb-2">
-                <strong class="text-fruitBrown productName text-lg flex px-5"><%= fruit.name %></strong>
-                <strong class="text-fruitBrown productName text-lg flex px-5">$<%= fruit.price %></strong>
+                <strong class="text-fruitBrown productName text-lg flex px-3"><%= fruit.name %></strong>
+                <strong class="text-fruitBrown productName text-lg flex px-3">$<%= fruit.price %></strong>
                 <% if (fruit.isfavourite) { %>
-                  <i class="fa-solid fa-heart-circle-minus fav_btn flex px-5" data-id="minus" data-fruitId="<%= fruit.id %>"></i>
+                  <i class="fa-solid fa-heart-circle-minus fav_btn flex px-3" data-id="minus" data-fruitId="<%= fruit.id %>"></i>
                 <% } else { %>
-                  <i class="fa-solid fa-heart-circle-plus fav_btn flex px-5" data-id="plus" data-fruitId="<%= fruit.id %>"></i>
+                  <i class="fa-solid fa-heart-circle-plus fav_btn flex px-3" data-id="plus" data-fruitId="<%= fruit.id %>"></i>
                 <% } %>
 
               </div>
@@ -223,11 +223,11 @@
                     </div>
                     <div class="align-center">
                       <!-- <i class="fa-solid fa-heart-circle-plus"></i> -->
-                      <% if (fruit.isfavourite) { %>
+                      <!-- <% if (fruit.isfavourite) { %>
                         <i class="fa-solid fa-heart-circle-minus fav_btn" data-id="minus" data-fruitId="<%= fruit.id %>"></i>
                       <% } else { %>
                         <i class="fa-solid fa-heart-circle-plus fav_btn" data-id="plus" data-fruitId="<%= fruit.id %>"></i>
-                      <% } %>
+                      <% } %> -->
                     </div>
                   </div>
                   <div
