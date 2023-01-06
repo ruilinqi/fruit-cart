@@ -14,10 +14,10 @@ Popup Window of Active Fruits
 Popup Window of Sold Out Fruits
 !["Screenshot of popup window of sold fruits"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/customer_popup_window_sold.png)
 
-Favourites
+Favourites Page
 !["Screenshot of favourite page"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/favourites.png)
 
-Shopping Cart
+Shopping Cart Page
 !["Screenshot of shopping cart page"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/shopping_cart.png)
 
 Email Send Form To Seller
