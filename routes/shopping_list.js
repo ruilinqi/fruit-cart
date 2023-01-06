@@ -26,6 +26,7 @@ router.post("/:fruit_id/delete", (req, res) => {
   const userID = req.session.user_id;
   console.log("Deleted fruitId", fruitId);
   console.log("Deleted userID", userID);
+  console.log("req.params", req.params);
   const sql = `DELETE FROM shopping_list WHERE user_id = $1 AND fruit_id = $2 RETURNING *;`
   db.query(sql, [userID, fruitId])
   .then(data => {

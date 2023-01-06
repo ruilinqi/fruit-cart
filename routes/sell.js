@@ -52,8 +52,6 @@ router.post("/sell", (req, res) => {
 });
 
 router.post("/sold", (req, res) => {
-  console.log(req.body);
-
   fruit_id = req.body.id;
 
   let fruitUpdate = `UPDATE fruits SET issold = true WHERE id = ${fruit_id} RETURNING *;`;

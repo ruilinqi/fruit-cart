@@ -1,13 +1,15 @@
 $(document).ready(function() {
+  // Event listener for all MARK SOLD buttons (MARK SOLD buttons use the same class as the ADD TO CART buttons).
   $(".addToCart").on("click",modalMarkSold);
+  // Same event listeners, but for modal popup buttons.
   $(".cart_btn").on("click",modalMarkSold);
 });
 
+// This function cuses jQuery to locate and update the modal image and mark sold button.
+// Those elements are then changes in the UI accordingly.
 function modalMarkSold(){
   if ($(this)[0].id == "markSold") {
     let modalImage = $(this).next().find("#modalFruitImage");
-
-    // console.log(modalImage.siblings().eq(2).find("#modalMarkSold"));
 
     let modalAdd = modalImage.siblings().eq(2).find("#modalMarkSold");
     modalImage[0].classList.add("grayscale");
@@ -17,8 +19,6 @@ function modalMarkSold(){
     modalAdd[0].disabled = true;
     modalAdd[0].innerHTML = "SOLD";
   }
-
-
 
   if ($(this)[0].id == "modalMarkSold") {
     let modalImage = $(this).parent().siblings().eq(1);
@@ -30,12 +30,7 @@ function modalMarkSold(){
     modalAdd[0].disabled = true;
     modalAdd[0].innerHTML = "SOLD";
 
-    // console.log($(this).parents().eq(4));
-
     markFruitSold($(this).parents().eq(4).children().eq(2)[0]);
-
-
-
   }
 }
 
