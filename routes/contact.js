@@ -15,7 +15,6 @@ router.get("/contact", (req, res) => {
       console.log(err);
     });
 
-  console.log("TEMPLATE VARS: ",templateVars);
   res.render("contact", templateVars);
 });
 
