@@ -66,18 +66,18 @@
           <div class="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pt-12 flex justify-center">
 
         <% for (let fruit of fruits) { %>
-            <div class="product">
+            <div class="product hover:scale-110 transition duration-300 ease-in-out">
 
               <div class="productImage">
                 <img id="fruitImage" class="h-48 w-full object-cover rounded-t-2xl" src="<%= fruit.fruit_picture_url %>" alt="fruits" >
-                <!-- <img src="<%= fruit.fruit_picture_url %>" alt="fruits"> -->
+
 
               </div>
               <div class="flex justify-between py-2">
                 <h3 class="productName text-fruitBrown productName text-lg flex px-5"><%= fruit.fruit_name %></h3>
                   <p class="price text-fruitBrown productName text-lg flex px-5">$<%= fruit.price %></p>
               </div>
-              <button class="addToCart content-center"><p>You love it!</p><span> <i class="fa-solid fa-heart"></i> </span></button>
+              <button class="removeFromFav content-center"><p>You love it!</p><span> <i class="fa-solid fa-heart"></i> </span></button>
             </div>
           <% } %>
         </div>

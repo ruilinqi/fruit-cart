@@ -85,11 +85,26 @@
    text-transform: uppercase;
    transition: .4s ease-in-out;
    width: 100%;
+   align-items: center;
  }
 
  .addToCart:hover {
    background-color: #DB6868;
    color: white;
+ }
+
+ .removeFromFav{
+   background-color: #FFF48D;
+   border:none;
+   padding: 10px;
+   border-radius: 0 0 20px 20px;
+   color: #7E2F2F;
+   font-weight: 700;
+   letter-spacing: 1.5px;
+   text-transform: uppercase;
+   transition: .4s ease-in-out;
+   width: 100%;
+   align-items: center;
  }
 
  .buttonContainer{
