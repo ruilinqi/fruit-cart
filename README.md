@@ -1,6 +1,35 @@
 # Fruit Cart
 
-Fruit Cart is a bright ecommerce app where customers can browse, favourite, and add delicious fruits to their cart. Admins can mark fruits as sold and choose which fruits to sell.
+Fruit Cart is a bright ecommerce app where customers can browse, favourite, and add delicious fruits to their cart. Admins can mark fruits as sold and choose which fruits to sell
+
+## Final Product
+
+### Customer View
+Main Page of Fruits Loading
+!["Screenshot of main page of fruit loading"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/customer_card_loading.png)
+
+Popup Window of Active Fruits
+!["Screenshot of active popup window"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/customer_popup_window_active.png)
+
+Popup Window of Sold Out Fruits
+!["Screenshot of popup window of sold fruits"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/customer_popup_window_sold.png)
+
+Favourites
+!["Screenshot of favourite page"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/favourites.png)
+
+Shopping Cart
+!["Screenshot of shopping cart page"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/shopping_cart.png)
+
+Email Send Form To Seller
+!["Screenshot of email send form"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/customer_email_send_form.png)
+
+### Admin View
+Main Page of Fruits Loading
+!["Screenshot of main page of fruit loading"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/seller_card_loading.png)
+
+Post New Fruits Page
+!["Screenshot of post new fruits page"](https://github.com/ruilinqi/fruit-cart/blob/master/public/docs/seller_post_new_item.png)
+
 
 ## Features
 
